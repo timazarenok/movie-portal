@@ -1,10 +1,10 @@
 class CreateSerials < ActiveRecord::Migration[6.0]
   def change
     create_table :serials do |t|
-      t.string :name
+      t.string :name, null: false
       t.string :description, limit: 500
-      t.string :clip
-      t.date :release_date
+      t.string :clip, null: false
+      t.date :release_date, null: false
       t.time :duration
       t.references :category, null: false, foreign_key: true
       t.references :director, null: false, foreign_key: true

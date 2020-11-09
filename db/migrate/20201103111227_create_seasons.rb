@@ -1,11 +1,11 @@
 class CreateSeasons < ActiveRecord::Migration[6.0]
   def change
     create_table :seasons do |t|
-      t.string :name
+      t.string :name, null: false
       t.string :description, limit: 500
-      t.string :image
-      t.time :duration
-      t.integer :number
+      t.string :image, null: false
+      t.time :duration, null: false
+      t.integer :number, null: false, limit: 2
       t.references :serial, null: false, foreign_key: true
 
       t.timestamps
