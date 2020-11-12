@@ -1,0 +1,9 @@
+%h1=@movie.name
+.container{style: "position: absolete; width: 100%"}
+  .row
+    .col-4
+      .list-group.list-group-flush{style: "width: 200px;"}
+        .list-group-item=@director.full_name
+        .list-group-item=@category.name
+    .col-8
+      .text-justify=@movie.description 

@@ -1,0 +1,24 @@
+%div.some{ :style => "position: absolute; left: 35%; top: 50px; width: 300px;" }  
+  %h2{ class: "text-info font-weight-bold" } Sign up
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field
+      .input-group
+        .input-group-prepend
+          .input-group-text.bg-light.text-dark  Email
+        = f.email_field :email, :required => false, :autofocus => true, placeholder: 'email', class: 'form-control'
+      - if @minimum_password_length
+        .small.form-text.text-muted (#{@minimum_password_length} characters minimum)
+    .field
+      .input-group{ :style => "padding: 0px 0px 5px 0px;"}
+        .input-group-prepend
+          .input-group-text.bg-light.text-dark Password
+        = f.password_field :password, autocomplete: "new-password", class: 'form-control' 
+    .field
+      .input-group{ :style => "padding: 0px 0px 5px 0px;"}
+        .input-group-prepend
+          .input-group-text.bg-light.text-dark Confirmation
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+    .actions
+      %button.btn.btn-primary Sign up
+  = render "devise/shared/links"

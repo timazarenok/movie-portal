@@ -1,0 +1,29 @@
+.navbar{class: "navbar-expand-lg navbar-dark bg-dark text-white"}
+  .a{class: "navbar-brand", href: "#"} 
+    =image_tag 'download.png', alt: 'movie-portal', height: '50px', width: '50px' 
+    Movie-portal
+  %button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarText", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarText.collapse.navbar-collapse
+  %ul.navbar-nav.mr-auto
+    %li.nav-item.active
+      %a.nav-link{:href => "/"}
+        Home
+        %span.sr-only (current)
+    %li.nav-item
+      %a.nav-link{:href => "/users/profile"} Profile
+    %li.nav-item Log out
+
+-@movies.each do |movie|
+  %ul.list-group{ style: "display: inline-block;"}
+    %li{class: "list-group-item", style: "width: 300px;"}
+      .card
+        .card-header=movie.class
+        .card-body
+          .card-title=movie.name
+          .card-text=movie.description
+          .small=movie.release_date
+          %a.card-link{ href: "/movies/#{movie.id}"} Learn more
+
+
+
