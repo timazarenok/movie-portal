@@ -1,5 +1,5 @@
-%div.some{ :style => "position: absolute; left: 35%; top: 50px; width: 300px;" }  
-  %h2{ class: "text-info font-weight-bold" } Log in
+.some{ :style => "position: absolute; left: 35%; top: 50px; width: 300px;" }
+  %h2.text-info.font-weight-bold Log in
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       .input-group{ :style => "padding: 0px 0px 5px 0px;"}

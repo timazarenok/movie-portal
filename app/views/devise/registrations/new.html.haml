@@ -1,5 +1,5 @@
 %div.some{ :style => "position: absolute; left: 35%; top: 50px; width: 300px;" }  
-  %h2{ class: "text-info font-weight-bold" } Sign up
+  %h2.red Sign up
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
     .field

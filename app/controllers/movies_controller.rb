@@ -1,7 +1,11 @@
 class MoviesController < ApplicationController
-  def show
-    @movie = Movie.find(params[:id])
-    @category = Category.find(@movie.category_id)
-    @director = Director.find(@movie.director_id)
+  before_action :set_movie, only: [:show, :edit, :delete, :update]
+
+  def show; end
+
+  private
+
+  def set_movie
+    @movie ||= Movie.find(params[:id])
   end
 end
