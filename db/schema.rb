@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2020_11_05_074844) do
   enable_extension "plpgsql"
 
   create_table "actors", force: :cascade do |t|
-    t.string "full_name"
+    t.string "full_name", null: false
     t.string "biography"
-    t.string "date_of_birth"
+    t.string "date_of_birth", null: false
     t.string "image"
     t.bigint "country_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -27,21 +27,21 @@ ActiveRecord::Schema.define(version: 2020_11_05_074844) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "countries", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "directors", force: :cascade do |t|
-    t.string "full_name"
+    t.string "full_name", null: false
     t.string "biography"
-    t.date "date_of_birth"
+    t.date "date_of_birth", null: false
     t.string "image"
     t.bigint "country_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(version: 2020_11_05_074844) do
   end
 
   create_table "movies", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description", limit: 500
-    t.string "clip"
-    t.date "release_date"
+    t.string "clip", null: false
+    t.date "release_date", null: false
     t.time "duration"
     t.bigint "category_id", null: false
     t.bigint "director_id", null: false
@@ -82,11 +82,11 @@ ActiveRecord::Schema.define(version: 2020_11_05_074844) do
   end
 
   create_table "seasons", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description", limit: 500
-    t.string "image"
-    t.time "duration"
-    t.integer "number"
+    t.string "image", null: false
+    t.time "duration", null: false
+    t.integer "number", limit: 2, null: false
     t.bigint "serial_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -112,10 +112,10 @@ ActiveRecord::Schema.define(version: 2020_11_05_074844) do
   end
 
   create_table "serials", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description", limit: 500
-    t.string "clip"
-    t.date "release_date"
+    t.string "clip", null: false
+    t.date "release_date", null: false
     t.time "duration"
     t.bigint "category_id", null: false
     t.bigint "director_id", null: false
@@ -126,11 +126,11 @@ ActiveRecord::Schema.define(version: 2020_11_05_074844) do
   end
 
   create_table "series", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description", limit: 500
     t.string "image"
-    t.time "duration"
-    t.integer "number"
+    t.time "duration", null: false
+    t.integer "number", null: false
     t.bigint "season_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
