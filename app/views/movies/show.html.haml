@@ -1,9 +1,16 @@
-%h1=@movie.name
-.container{style: "position: absolete; width: 100%"}
-  .row
-    .col-4
-      .list-group.list-group-flush{style: "width: 200px;"}
-        .list-group-item=@director.full_name
-        .list-group-item=@category.name
-    .col-8
-      .text-justify=@movie.description 
+.main.text-muted
+  %h3.font-weight-bold= @movie.name
+  .container
+    .row
+      .col-4
+        .img.movie-img{ src: "", alt: @movie.name }
+      .col-8
+        %div.embed-responsive-embed-responsive-16by9
+          %iframe.allowfullscreen.embed-responsive-item.movie-clip{ src: ""}
+    .row
+      .col-4
+        .list-group.list-group-flush.attributes-list
+          .list-group-item= @movie.director&.full_name
+          .list-group-item= @movie.category&.name
+      .col-8
+        .text-justify= @movie.description 

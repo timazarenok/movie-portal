@@ -1,24 +1,24 @@
-%div.some{ :style => "position: absolute; left: 35%; top: 50px; width: 300px;" }  
-  %h2{ class: "text-info font-weight-bold" } Log in
+.form_container  
+  %h2.form_header Log in
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
-      .input-group{ :style => "padding: 0px 0px 5px 0px;"}
+      .input-group
         .input-group-prepend
           .input-group-text.bg-light.text-dark  Email
         = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' 
     .field
-      .input-group{ :style => "padding: 0px 0px 5px 0px;"}
+      .input-group
         .input-group-prepend
           .input-group-text.bg-light.text-dark  Password
         = f.password_field :password, autocomplete: "current-password", class: 'form-control' 
     - if devise_mapping.rememberable?
       .field
-      .input-group{ :style => "padding: 0px 0px 5px 0px;"}
+      .input-group
         .input-group-prepend
           .input-group-text
             .checkbox
             = f.check_box :remember_me
           .input-group-text.bg-light.text-dark Remember me
       .actions
-        %button.btn.btn-primary Log in
+        %button.btn.form_button Log in
   = render "devise/shared/links"

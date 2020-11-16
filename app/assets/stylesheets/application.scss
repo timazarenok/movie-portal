@@ -15,6 +15,51 @@
  */
  @import "bootstrap";
 
+.form_container {
+  position: absolute; 
+  left: 35%; 
+  top: 100px; 
+  width: 300px;
+}
+
+.form_header {
+  color: #cc073c;
+  font-weight: bold
+}
+
+.input-group {
+  padding: 0px 0px 5px 0px;
+}
+
+.form_button {
+  background-color: #cc073c;
+  color: #cfcdd1;
+}
+
+.check_box { 
+  color: #cc073c;
+}
+
+.navbar {
+  background-color: #111822;
+}
+
+.navbar-brand {
+  color: #cfcdd1
+}
+
+.navbar-brand:hover {
+  color: #cc073c;
+}
+
+.nav-link {
+  color: #cfcdd1;
+}
+
+.nav-link:hover {
+  color: #cc073c;
+}
+
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
