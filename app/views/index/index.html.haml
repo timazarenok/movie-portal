@@ -1,14 +1,9 @@
--@movies.each do |movie|
-  .list-group.movie-list
-    .list-group-item.movie-list-item
+%ul.movie-list
+  -@movies.each do |movie|
+    %li.movie-card
       .card
-        .card-header=movie.class
+        .card-header= movie.class
         .card-body
-          .card-title=movie.name
-          .card-text=movie.description
-          .small=movie.release_date
+          .card-title= movie.name
+          .small= movie.release_date
           = link_to 'Learn more', movie_path(movie), class: 'card-link'
-
-
-
-

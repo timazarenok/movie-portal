@@ -3,10 +3,20 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.list-group.movie-list {
+.movie-list {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+}
+
+.movie-card {
+  width: 200px;
+  height: 170px;
   display: inline-block;
 }
 
-.movie-list-item {
-  width: 300px;
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

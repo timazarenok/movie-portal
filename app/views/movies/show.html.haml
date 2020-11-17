@@ -3,14 +3,32 @@
   .container
     .row
       .col-4
-        .img.movie-img{ src: "", alt: @movie.name }
+        .img.movie-img{ src: @movie.image, alt: @movie.name }
       .col-8
         %div.embed-responsive-embed-responsive-16by9
-          %iframe.allowfullscreen.embed-responsive-item.movie-clip{ src: ""}
+          %iframe.allowfullscreen.embed-responsive-item.movie-clip{ src: "" } 
     .row
       .col-4
-        .list-group.list-group-flush.attributes-list
-          .list-group-item= @movie.director&.full_name
-          .list-group-item= @movie.category&.name
+        %br
+        %ul.attributes-list
+          %li
+            .attribute-name director
+            = link_to "#{@movie.director&.full_name}", director_path(@movie.director)
+          %li
+            .attribute-name category
+            = @movie.category&.name
+          %li
+            .attribute-name duration
+            = @movie.duration.to_s(:time)
+          %li
+            .attribute-name release date
+            = @movie.release_date
       .col-8
-        .text-justify= @movie.description 
+        %br
+        .text-justify= @movie.description
+        %br
+          %ul.actor-list
+            -@actors.each do |actor|
+              %li.actor-img
+                .img{ src: actor.image}
+                .title= actor.full_name

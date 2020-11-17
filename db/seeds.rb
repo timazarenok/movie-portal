@@ -4,11 +4,27 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   Character.create(name: 'Luke', movie: movies.first
 
-Country.create(name: "Belarus")
-Category.create(name: "Comedy")
-Director.create(full_name: "Test", biography: "rfdjknrejlfrefnm", date_of_birth: "19.06.2002", image: "rnffejnefdwed", country_id: Country.find_by(name: "Belarus").id)
-Movie.create(name: "Movie2", description: "", clip: "clip_test2", release_date: "31.01.2021", duration: "02:03", category_id: Category.find_by(name: "Comedy").id, director_id: Director.find_by(full_name: "Test").id)
-Movie.create(name: "Movie3", description: "no desc", clip: "clip_test3", release_date: "26.11.2020", duration: "02:15", category_id: Category.find_by(name: "Comedy").id, director_id: Director.find_by(full_name: "Test").id)
-Movie.create(name: "Movie4", description: "gyuiopooiuuyuiop[ojiguk", clip: "clip_test4", release_date: "21.06.2020", duration: "01:30", category_id: Category.find_by(name: "Comedy").id, director_id: Director.find_by(full_name: "Test").id)
+require('faker')
+
+(1..10).each do
+  Country.create(name: Faker::Nation.nationality)
+  Category.create(name: Faker::Book.genre)
+end
+
+(1..5).each do
+  Director.create(full_name: Faker::Name.name, biography: Faker::Lorem.paragraph(sentence_count: 15), date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 80), image: Faker::Fillmurray.image(grayscale: false, width: 200, height: 300), country: Country.order(Arel.sql('RANDOM()')).first)
+end
+
+(1..10).each do
+  Movie.create(name: Faker::Movie.title, image: Faker::Fillmurray.image(grayscale: false, width: 200, height: 300), description: Faker::Lorem.paragraph(sentence_count: 20), clip: "clip", release_date: Faker::Date.in_date_period, duration: "02:03", category: Category.order(Arel.sql('RANDOM()')).first, director: Director.order(Arel.sql('RANDOM()')).first)
+end
+
+(1..20).each do
+  Actor.create(full_name: Faker::Name.name, biography: Faker::Lorem.paragraph(sentence_count: 15), date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 80), image: Faker::Fillmurray.image(grayscale: false, width: 200, height: 300), country: Country.order(Arel.sql('RANDOM()')).first) 
+end
+
+(1..8).each do
+  MoviesActor.create(movie: Movie.first, actor: Actor.order(Arel.sql('RANDOM()')).first) 
+end

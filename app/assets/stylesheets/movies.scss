@@ -3,12 +3,24 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .attributes-list {
-  width: 200px;
+  width: 250px;
+  list-style: none;
+  padding-inline-start: 0px;
+}
+
+.attributes-list li {
+  display: flex;
+  justify-content: space-between;  
+  padding: 5px 5px 5px 5px;
+}
+
+.attribute-name {
+  color: #cc073c;
 }
 
 .main {
   position: absolute;
-  left: 25%; 
+  left: 20%; 
   top: 100px;
 }
 
@@ -19,5 +31,25 @@
 
 .movie-img {
   height: 300px;
-  width: 200px;
+  width: 300px;
+  border: 1px solid;
+}
+
+.text-justify {
+  width: 600px; 
+}
+
+.actor-list {
+  list-style: none;
+  width: 600px;
+  padding-inline-start: 0px;
+}
+
+.actor-list li {
+  display: inline-block;
+}
+
+.actor-img {
+  width: 100px;
+  height: 70px;
 }
