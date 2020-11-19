@@ -1,9 +1,13 @@
-%ul.movie-list
-  -@movies.each do |movie|
-    %li.movie-card
-      .card
-        .card-header= movie.class
-        .card-body
-          .card-title= movie.name
-          .small= movie.release_date
-          = link_to 'Learn more', movie_path(movie), class: 'card-link'
+.main
+  %h3.section-name Films
+  %ul.home-movie-list
+    -@movies.each do |movie|
+      %li.movie-title
+        = link_to movie.name, movie_path(movie), class: 'movie-title link'
+        .small= "#{movie.release_date.year}" #{movie.country}"
+  %h3.section-name TV Serials
+  %ul.home-movie-list
+    -@tv_serials.each do |movie|
+      %li.movie-title
+        = link_to movie.name, movie_path(movie), class: 'movie-title link'
+        .small= "#{movie.release_date.year}" #{movie.country}"

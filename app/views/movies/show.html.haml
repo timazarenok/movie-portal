@@ -1,4 +1,4 @@
-.main.text-muted
+.main
   %h3.font-weight-bold= @movie.name
   .container
     .row
@@ -13,22 +13,22 @@
         %ul.attributes-list
           %li
             .attribute-name director
-            = link_to "#{@movie.director&.full_name}", director_path(@movie.director)
+            = link_to "#{@movie.director&.full_name}", director_path(@movie.director), class: 'attribute-link'
           %li
             .attribute-name category
-            = @movie.category&.name
+            .attribute-value= @movie.category&.name
           %li
             .attribute-name duration
-            = @movie.duration.to_s(:time)
+            .attribute-value= @movie.duration.to_s(:time)
           %li
             .attribute-name release date
-            = @movie.release_date
+            .attribute-value= @movie.release_date
       .col-8
-        %br
+        .section-name Pilot
         .text-justify= @movie.description
-        %br
-          %ul.actor-list
-            -@actors.each do |actor|
-              %li.actor-img
-                .img{ src: actor.image}
-                .title= actor.full_name
+        .section-name Actors
+        %ul.actor-list
+          -@actors.each do |actor|
+            %li.actor-img
+              .img{ src: actor.image}
+              .title= actor.full_name
