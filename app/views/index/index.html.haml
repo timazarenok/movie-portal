@@ -9,5 +9,5 @@
   %ul.home-movie-list
     -@tv_serials.each do |movie|
       %li.movie-title
-        = link_to movie.name, movie_path(movie), class: 'movie-title link'
+        = link_to movie.name, movie_path(movie), class: 'link'
         .small= "#{movie.release_date.year}" #{movie.country}"

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :movies, :directors
+  resources :movies, :directors, :actors
   get 'users/profile', as: 'user_root'
 
   root 'index#index'

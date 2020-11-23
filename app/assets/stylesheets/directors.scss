@@ -2,3 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.main {
+  position: absolute;
+  color: #cfcdd1;
+  top: 100px;
+}
+
+.director-img {
+  height: 300px;
+  width: 300px;
+  border: 1px solid;
+}
+
+.section-name {
+  position: relative;
+  top: 30px;
+}

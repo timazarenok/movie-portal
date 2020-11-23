@@ -29,6 +29,6 @@
         .section-name Actors
         %ul.actor-list
           -@actors.each do |actor|
-            %li.actor-img
-              .img{ src: actor.image}
-              .title= actor.full_name
+            %li.movie-title
+              .img{ src: actor.image, class: 'actor-img'}
+              = link_to actor.full_name, actor_path(actor.id), class: 'link' 
