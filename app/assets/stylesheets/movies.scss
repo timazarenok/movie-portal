@@ -3,13 +3,56 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .attributes-list {
-  width: 200px;
+  width: 250px;
+  list-style: none;
+  padding-inline-start: 0px;
+}
+
+.attributes-list li {
+  display: flex;
+  justify-content: space-between;  
+  padding: 5px 5px 5px 5px;
+}
+
+.attribute-name {
+  color: #cc073c;
+}
+
+.attribute-link {
+  color: #cfcdd1;
+}
+
+.attribute-value {
+  color: #cfcdd1;
+}
+
+.attribute-link:hover {
+  color: #cc073c;
+  text-decoration: none;
 }
 
 .main {
   position: absolute;
-  left: 25%; 
+  left: 20%; 
   top: 100px;
+  color: #cfcdd1;
+}
+
+.section-name {
+  color: #cc073c;
+}
+
+.movie-list {
+  list-style: none;
+  height: auto;
+  position: relative;
+  padding: 30px 0px;
+}
+
+.movie-list li {
+  display: inline-block;
+  width: 190px;
+  height: 170px;
 }
 
 .movie-clip {
@@ -19,5 +62,29 @@
 
 .movie-img {
   height: 300px;
-  width: 200px;
+  width: 300px;
+  border: 1px solid;
+}
+
+.text-justify {
+  width: 600px;
+  padding: 30px 0px;
+}
+
+.actor-list {
+  list-style: none;
+  width: 600px;
+  padding-inline-start: 0px;
+  padding: 30px 0px;
+}
+
+.actor-list li {
+  display: inline-block;
+  width: 100px;
+  height: 70px;
+}
+
+.actor-img {
+  width: 80px;
+  height: 50px;
 }
