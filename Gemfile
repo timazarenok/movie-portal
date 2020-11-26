@@ -29,6 +29,7 @@ gem 'html2haml'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jquery-rails'
+gem 'activeadmin'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
