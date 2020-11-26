@@ -15,10 +15,13 @@
  */
  @import "bootstrap";
 
+ body { 
+  background-color: #111822;
+ }
+
 .form_container {
-  position: absolute; 
+  position: sticky; 
   left: 35%; 
-  top: 100px; 
   width: 300px;
 }
 

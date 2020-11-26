@@ -1,0 +1,7 @@
+.main 
+  .h3.section-name Films
+  %ul.movie-list
+    -@movies.each do |movie|
+      %li.movie-title
+        = link_to movie.name, movie_path(movie), class: 'link'
+        .small= movie.release_date.year

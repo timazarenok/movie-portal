@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-  resources :movies
+  resources :movies, :directors, :actors
   get 'users/profile', as: 'user_root'
 
   root 'index#index'
