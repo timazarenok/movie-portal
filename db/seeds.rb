@@ -28,3 +28,6 @@ end
 (1..8).each do
   MoviesActor.create(movie: Movie.first, actor: Actor.order(Arel.sql('RANDOM()')).first) 
 end
+
+User.create(email: "timofey.zarenok@gmail.com", password: "tima2002")
+AdminUser.create(email: "timofey.zarenok@gmail.com", password: "tima2002")

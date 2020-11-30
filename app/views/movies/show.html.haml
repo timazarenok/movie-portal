@@ -1,4 +1,4 @@
-.main
+.movie-main
   %h3.font-weight-bold= @movie.name
   .container
     .row
@@ -6,7 +6,7 @@
         .img.movie-img{ src: @movie.image, alt: @movie.name }
       .col-8
         %div.embed-responsive-embed-responsive-16by9
-          %iframe.allowfullscreen.embed-responsive-item.movie-clip{ src: "" } 
+          %iframe.allowfullscreen.embed-responsive-item.movie-clip{ src: "", top: "100px" } 
     .row
       .col-4
         %br
@@ -29,6 +29,6 @@
         .section-name Actors
         %ul.actor-list
           -@actors.each do |actor|
-            %li.movie-title
+            %li
               .img{ src: actor.image, class: 'actor-img'}
               = link_to actor.full_name, actor_path(actor.id), class: 'link' 
