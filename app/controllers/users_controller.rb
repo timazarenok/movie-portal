@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   def profile; end
 
   def create
-    if 
-      UserMailer.with(user: @user).welcome_email.deliver_later 
-    end
+    UserMailer.welcome_email(@user).deliver_now 
+  end
 end

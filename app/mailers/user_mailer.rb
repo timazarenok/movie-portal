@@ -1,8 +1,15 @@
 class UserMailer < ApplicationMailer
-  default from: 'timofey.zarenok@gmail.com'
+  default from: 'Test <test@example.com>'
 
-  def welcome_email
-    @user = current_user
-    mail(to: user.email, subject: 'From Movie-portal with love')
+  layout 'mailer'
+
+  def welcome_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'From Movie-portal with love')
+  end
+  
+  def test_send(email)
+    @email = email
+    mail(to: @email, subject: 'Test Send')
   end
 end
