@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :movies do 
-    collection do
-      get :search
-    end
-  end
+  resources :movies
   resources :directors, :actors
+
+  get 'search', to: 'search#search'
+
   get 'users/profile', as: 'user_root'
 
   root 'index#index'

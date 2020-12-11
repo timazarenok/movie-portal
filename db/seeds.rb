@@ -17,6 +17,8 @@ end
   Director.create(full_name: Faker::Name.name, biography: Faker::Lorem.paragraph(sentence_count: 15), date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 80), image: Faker::Fillmurray.image(grayscale: false, width: 200, height: 300), country: Country.order(Arel.sql('RANDOM()')).first)
 end
 
+Movie.__elasticsearch__.create_index!(force: true)
+
 (1..10).each do
   Movie.create(name: Faker::Movie.title, image: Faker::Fillmurray.image(grayscale: false, width: 200, height: 300), description: Faker::Lorem.paragraph(sentence_count: 20), clip: "clip", release_date: Faker::Date.in_date_period, duration: "02:03", category: Category.order(Arel.sql('RANDOM()')).first, director: Director.order(Arel.sql('RANDOM()')).first)
 end
@@ -30,4 +32,4 @@ end
 end
 
 User.create(email: "timofey.zarenok@gmail.com", password: "tima2002")
-AdminUser.create(email: "timofey.zarenok@gmail.com", password: "tima2002")
+

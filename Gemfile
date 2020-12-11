@@ -30,7 +30,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jquery-rails'
 gem 'faker'
-gem 'searchkick'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

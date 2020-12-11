@@ -9,14 +9,6 @@ class MoviesController < ApplicationController
     get_actors
   end
 
-  def search
-    query = params[:search_movies].presence && params[:search_movies][:query]
-  
-    if query
-      @posts = Movie.search_published(query)
-    end
-  end
-
   private
 
   def set_movie
