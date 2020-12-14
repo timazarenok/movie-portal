@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
   def search
     @q = params[:q]
-    @movies = params[:q].nil? ? [] : Movie.search_published(params[:q])
+    @results = params[:q].nil? ? [] : MultySearch.new.search(params[:q]).results
   end
 
 end
