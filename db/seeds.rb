@@ -29,4 +29,4 @@ end
   MoviesActor.create(movie: Movie.first, actor: Actor.order(Arel.sql('RANDOM()')).first) 
 end
 
-AdminUser.create(email: "timofey.zarenok@gmail.com", password: "tima2002", password_confirmation: "tima2002")
+User.create(email: "timogrif27@gmail.com", password: "tima2002", password_confirmation: "tima2002", role: :admin)
