@@ -30,6 +30,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jquery-rails'
 gem 'faker'
+gem 'open-uri'
+gem 'dotenv-rails',:groups => [:development, :test], require: 'dotenv/rails-now'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
