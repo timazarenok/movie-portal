@@ -30,4 +30,3 @@ end
 end
 
 User.create(email: "timofey.zarenok@gmail.com", password: "tima2002")
-AdminUser.create(email: "timofey.zarenok@gmail.com", password: "tima2002")
