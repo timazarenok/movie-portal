@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+  {class_name: 'User'}.merge(ActiveAdmin::Devise.config)
+  ActiveAdmin.routes(self)
+  
+  get 'users/profile', as: 'user_root'
+  
   resources :movies do
     resources :likes
   end
