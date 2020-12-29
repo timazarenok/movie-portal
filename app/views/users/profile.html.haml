@@ -1,16 +1,15 @@
-.navbar{class: "navbar-expand-lg navbar-dark bg-dark text-white"}
-  .a{class: "navbar-brand", href: "#"} 
-    %img{src: 'app/assets/download.png', alt: 'movie-pportal', height: '30px', width: '30px'} 
-    Movie-portal
-  %button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarText", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
-  #navbarText.collapse.navbar-collapse
-  %ul.navbar-nav.mr-auto
-    %li.nav-item.active
-      %a.nav-link{:href => "/"}
-        Home
-        %span.sr-only (current)
-    %li.nav-item
-      %a.nav-link{:href => "/users/profile"} Profile
-    %li.nav-item
-      = link_to "logout", destroy_user_session_path, method: :delete
+.user-main
+  %h3.profile-title Profile
+  .container
+    .row
+      .col-4
+        %img.user-img
+      .col-8  
+    .row
+      .col-4
+        .user-email
+          .email-title Email
+          .email-value= @user.email
+      .col-8
+        .panel
+          =@movies.count

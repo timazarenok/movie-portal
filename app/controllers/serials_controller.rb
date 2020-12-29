@@ -1,0 +1,2 @@
+class SerialsController < ApplicationController
+end

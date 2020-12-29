@@ -1,0 +1,22 @@
+.main
+  .container
+    .row
+      .col-4
+        %h2= @actor.full_name
+        .img.director-img{ src: @actor.image, alt: @actor.full_name }
+        %br
+        %ul.attributes-list
+          %li
+            .attribute-name nationality
+            .attribute-value= @actor.country.name
+          %li
+            .attribute-name birthday
+            .attribute-value= @actor.date_of_birth
+      .col-8
+        %h4.section-name Biography
+        .text-justify= @actor.biography
+        %ul.home-movie-list
+          -@actor.movies.each do |movie|
+            %li.movie-title
+              = link_to movie.name, movie_path(movie), class: 'link'
+              .small= "#{movie.release_date.year}" #{movie.country}"
