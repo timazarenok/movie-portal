@@ -3,12 +3,15 @@
     .row
       .col-4
         %h2= @actor.full_name
-        .img.director-img{ src: "https://image.tmdb.org/t/p/w300#{@actor.image}", alt: @actor.full_name }
+        -if @actor.image 
+          %img.director-img{ src: "https://image.tmdb.org/t/p/w300#{@actor.image}", alt: @actor.full_name }
+        -else
+          %img.director-no-img
         %br
         %ul.attributes-list
           %li
             .attribute-name nationality
-            .attribute-value= @actor.country.name
+            .attribute-value= @actor.place_of_birth
           %li
             .attribute-name birthday
             .attribute-value= @actor.date_of_birth

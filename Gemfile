@@ -29,7 +29,12 @@ gem 'html2haml'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jquery-rails'
+gem 'activeadmin'
 gem 'faker'
+gem 'rolify'
+gem 'cancancan'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 gem 'open-uri'
 gem 'dotenv-rails',:groups => [:development, :test], require: 'dotenv/rails-now'
 # Use Active Storage variant
@@ -42,6 +47,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  gem 'mailcatcher'
 end
 
 group :development do

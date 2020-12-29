@@ -3,10 +3,10 @@ class CreateDirectors < ActiveRecord::Migration[6.0]
     create_table :directors do |t|
       t.string :full_name, null: false
       t.string :biography
-      t.date :date_of_birth, null: false
+      t.string :date_of_birth
       t.string :image
-      t.references :country, null: false, foreign_key: true
-
+      t.string :place_of_birth
+      
       t.timestamps
     end
   end

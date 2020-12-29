@@ -10,20 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_074844) do
+ActiveRecord::Schema.define(version: 2020_12_17_230602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
   create_table "actors", force: :cascade do |t|
     t.string "full_name", null: false
     t.string "biography"
-    t.string "date_of_birth", null: false
+    t.string "date_of_birth"
     t.string "image"
-    t.bigint "country_id", null: false
+    t.string "place_of_birth"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["country_id"], name: "index_actors_on_country_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -41,12 +54,21 @@ ActiveRecord::Schema.define(version: 2020_11_05_074844) do
   create_table "directors", force: :cascade do |t|
     t.string "full_name", null: false
     t.string "biography"
-    t.date "date_of_birth", null: false
+    t.string "date_of_birth"
     t.string "image"
-    t.bigint "country_id", null: false
+    t.string "place_of_birth"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["country_id"], name: "index_directors_on_country_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.string "likeable_type", null: false
+    t.bigint "likeable_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -146,12 +168,12 @@ ActiveRecord::Schema.define(version: 2020_11_05_074844) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "actors", "countries"
-  add_foreign_key "directors", "countries"
+  add_foreign_key "likes", "users"
   add_foreign_key "movies", "categories"
   add_foreign_key "movies", "directors"
   add_foreign_key "movies_actors", "actors"
