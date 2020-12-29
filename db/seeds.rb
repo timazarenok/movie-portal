@@ -8,6 +8,9 @@
 
 require('faker')
 
+url = "https://api.themoviedb.org/3/movie/3?api_key=#{ENV['TMD_TOKEN']}&language=en-US&append_to_response=#{ENV['GUEST_SESSION_ID']}&page=1}"
+data = JSON.parse(URI.open(url).read) 
+
 (1..10).each do
   Country.create(name: Faker::Nation.nationality)
   Category.create(name: Faker::Book.genre)
