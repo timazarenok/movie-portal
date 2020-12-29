@@ -3,7 +3,7 @@
     .row
       .col-4
         %h2= @actor.full_name
-        .img.director-img{ src: @actor.image, alt: @actor.full_name }
+        .img.director-img{ src: "https://image.tmdb.org/t/p/w300#{@actor.image}", alt: @actor.full_name }
         %br
         %ul.attributes-list
           %li
