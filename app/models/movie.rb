@@ -11,6 +11,8 @@ class Movie < ApplicationRecord
   has_many :countries, through: :movies_country
   has_many :movies_actor
   has_many :actors, through: :movies_actor
+  has_many :likes, as: :likeable
+  has_many :users, through: :like
 
   settings ES_SETTING do
     mappings dynamic: 'true' do
@@ -44,5 +46,4 @@ class Movie < ApplicationRecord
       },
     }).results
   end
-
 end
