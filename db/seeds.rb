@@ -8,7 +8,10 @@
 
 require('/home/ghto/Desktop/movie-portal/app/services/movies/movie_scrapper.rb')
 
+MovieScrapper.getCountries
+MovieScrapper.getCredits(5)
 
+Director.__elasticsearch__.create_index!(force: true)
+Actor.__elasticsearch__.create_index!(force: true)
+Serial.__elasticsearch__.create_index!(force: true)
 
-
-MovieScrapper.getPerson(3129, "Acting")

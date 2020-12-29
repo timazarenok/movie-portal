@@ -11,8 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= stub "active_admin"
  *= require_self
  */
+
  @import "bootstrap";
 
  body { 
@@ -21,7 +23,7 @@
 
 .form_container {
   position: sticky; 
-  left: 35%; 
+  left: 40%; 
   width: 300px;
 }
 
@@ -41,6 +43,9 @@
 
 .check_box { 
   color: #cc073c;
+  cursor: pointer;
+  background: #cc073c;
+  box-shadow: #cc073c;
 }
 
 .navbar {
@@ -48,15 +53,22 @@
 }
 
 .navbar-brand {
-  color: #cfcdd1
+  color: #cfcdd1;
 }
 
 .navbar-brand:hover {
-  color: #cc073c;
+  color: #cfcdd1;
 }
-
 .nav-link {
   color: #cfcdd1;
+}
+
+.error {
+  list-style: none;
+  color: #cc073c;
+  width: 500px;
+  position: relative;
+  left: -50px;
 }
 
 .nav-link:hover {

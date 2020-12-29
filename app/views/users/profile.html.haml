@@ -1,0 +1,15 @@
+.user-main
+  %h3.profile-title Profile
+  .container
+    .row
+      .col-4
+        %img.user-img
+      .col-8  
+    .row
+      .col-4
+        .user-email
+          .email-title Email
+          .email-value= @user.email
+      .col-8
+        .panel
+          =@movies.count
