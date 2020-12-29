@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 2020_12_17_230602) do
     t.index ["country_id"], name: "index_directors_on_country_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.string "likeable_type", null: false
+    t.bigint "likeable_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "name", null: false
     t.string "image", null: false
@@ -167,6 +177,7 @@ ActiveRecord::Schema.define(version: 2020_12_17_230602) do
 
   add_foreign_key "actors", "countries"
   add_foreign_key "directors", "countries"
+  add_foreign_key "likes", "users"
   add_foreign_key "movies", "categories"
   add_foreign_key "movies", "directors"
   add_foreign_key "movies_actors", "actors"

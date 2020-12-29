@@ -104,6 +104,23 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    elasticsearch (7.10.0)
+      elasticsearch-api (= 7.10.0)
+      elasticsearch-transport (= 7.10.0)
+    elasticsearch-api (7.10.0)
+      multi_json
+    elasticsearch-model (7.1.1)
+      activesupport (> 3)
+      elasticsearch (> 1)
+      hashie
+    elasticsearch-rails (7.1.1)
+    elasticsearch-transport (7.10.0)
+      faraday (~> 1)
+      multi_json
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -192,6 +209,7 @@ GEM
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
+    open-uri (0.1.0)
     orm_adapter (0.5.0)
     pg (1.2.3)
     polyamorous (2.3.2)
@@ -334,6 +352,9 @@ DEPENDENCIES
   cancancan
   capybara (>= 2.15)
   devise
+  elasticsearch-model
+  elasticsearch-rails
+  dotenv-rails
   faker
   haml
   html2haml
@@ -342,6 +363,7 @@ DEPENDENCIES
   listen (~> 3.2)
   omniauth
   omniauth-facebook
+  open-uri
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)

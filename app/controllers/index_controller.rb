@@ -7,10 +7,10 @@ class IndexController < ApplicationController
   private 
 
   def get_films
-    @movies = Movie.all
+    @movies = Movie.take(25)
   end
 
   def get_tv_serials
-    @tv_serials = Serial.all
+    @tv_serials = Serial.take(25)
   end
 end

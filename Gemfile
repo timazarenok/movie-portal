@@ -33,6 +33,10 @@ gem 'activeadmin'
 gem 'faker'
 gem 'rolify'
 gem 'cancancan'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'open-uri'
+gem 'dotenv-rails',:groups => [:development, :test], require: 'dotenv/rails-now'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

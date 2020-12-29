@@ -5,10 +5,15 @@
       .col-4
         .img.movie-img{ src: @movie.image, alt: @movie.name }
       .col-8
-        %div.embed-responsive-embed-responsive-16by9
-          %iframe.allowfullscreen.embed-responsive-item.movie-clip{ src: "", top: "100px" } 
+        
     .row
       .col-4
+        %br
+          %div{:id => "like-container#{@movie.id}"}
+            -if current_user.liked?("Movie", @movie.id)
+              =render("likes/unlike")
+            -else
+              =render("likes/like")
         %br
         %ul.attributes-list
           %li
