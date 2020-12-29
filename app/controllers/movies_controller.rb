@@ -9,27 +9,6 @@ class MoviesController < ApplicationController
     get_actors
   end
 
-  def like
-    Like.create(user: current_user, likeable: @movie)
-    respond_to do |format|
-      format.html do
-      flash[:success] = "Like Counted!"
-      redirect_to @movie
-    end
-    
-    format.js
-    end
-  end
-
-  def unlike
-    @record = Like.where(user_id: current_user.id).where(likeable: @movie)
-    @record.destroy_all
-    respond_to do |format|
-      format.html {redirect_to @movie}
-      format.js {}
-    end 
-  end
-
   private
 
   def set_movie

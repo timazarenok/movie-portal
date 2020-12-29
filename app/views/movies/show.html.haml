@@ -9,11 +9,11 @@
     .row
       .col-4
         %br
-          .like-container
-            -if @movie.liked?(current_user)
-              =button_to "Unlike", unlike_movie_path(@movie), method: "delete", remote: true
+          %div{:id => "like-container#{@movie.id}"}
+            -if current_user.liked?("Movie", @movie.id)
+              =render("likes/unlike")
             -else
-              =button_to "Like", like_movie_path(@movie), method: "put", remote: true
+              =render("likes/like")
         %br
         %ul.attributes-list
           %li
