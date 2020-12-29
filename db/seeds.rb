@@ -15,3 +15,5 @@ Director.__elasticsearch__.create_index!(force: true)
 Actor.__elasticsearch__.create_index!(force: true)
 Serial.__elasticsearch__.create_index!(force: true)
 Movie.__elasticsearch__.create_index!(force: true)
+
+
