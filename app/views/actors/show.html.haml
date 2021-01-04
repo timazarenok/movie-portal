@@ -4,7 +4,7 @@
       .col-4
         %h2= @actor.full_name
         -if @actor.image 
-          %img.director-img{ src: "https://image.tmdb.org/t/p/w300#{@actor.image}", alt: @actor.full_name }
+          %img.director-img{ src: "https://image.tmdb.org/t/p/w185#{@actor.image}", alt: @actor.full_name }
         -else
           %img.director-no-img
         %br
@@ -21,5 +21,7 @@
         %ul.home-movie-list
           -@actor.movies.each do |movie|
             %li.movie-title
+              %img.movie-home-img{ src: "https://image.tmdb.org/t/p/w300#{movie.image}", alt: movie.name }
+              %br
               = link_to movie.name, movie_path(movie), class: 'link'
               .small= "#{movie.release_date.year}" #{movie.country}"

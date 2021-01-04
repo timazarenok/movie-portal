@@ -3,14 +3,17 @@
   .container
     .row
       .col-4
-        .img.movie-img{ src: "https://image.tmdb.org/t/p/w300#{@movie.image}", alt: @movie.name }
+        -if @movie.image 
+          %img.movie-img{ src: "https://image.tmdb.org/t/p/w300#{@movie.image}", alt: @movie.name }
+        -else
+          %img.movie-no-img
       .col-8
         
     .row
       .col-4
         %br
           %div{:id => "like-container#{@movie.id}"}
-            -if current_user.liked?("Movie", @movie.id)
+            -if !current_user.nil? && current_user.liked?("Movie", @movie.id)
               =render("likes/unlike")
             -else
               =render("likes/like")

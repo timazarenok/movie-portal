@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_12_17_230602) do
   create_table "movies", force: :cascade do |t|
     t.string "name", null: false
     t.string "image", null: false
-    t.string "description", limit: 500
+    t.string "description"
     t.string "clip", null: false
     t.date "release_date", null: false
     t.time "duration"

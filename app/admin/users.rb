@@ -9,9 +9,16 @@ ActiveAdmin.register User do
   #
   # or
   #
+  controller do
+    before_action :show 
+    def show
+      redirect_to admin_root_path unless current_user.admin?
+    end
+  end
+
   permit_params do
-    permitted = [:email, :role, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
+    permitted = [:email, :role, :password, :password_confirmation, :reset_password_token, :reset_password_sent_at, :remember_created_at]
+    permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end
   
