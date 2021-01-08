@@ -9,7 +9,6 @@ class MovieScrapper
       data["items"].each do |el| 
         credits = getCredits(el["id"])
         director = p_s.get_director(credits["crew"])
-        p director
         movie_data = getMovie(el["id"])
         movie = Movie.create(name: movie_data["original_title"], image: movie_data["poster_path"], description: movie_data["overview"], clip: "", release_date: movie_data["release_date"], duration: "02:04", category: Category.find_by(name: movie_data["genres"][0]["name"]), director: director)
         p_s.set_movie_actors(movie.id, credits["cast"])

@@ -27,7 +27,6 @@ class PersonScrapper
 
   def get_director(data)
     person = data.find { |el| el["job"] = "Director"}
-    p person
     director = create_director(get_person(person["id"]))
   end
 end
