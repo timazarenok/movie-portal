@@ -3,12 +3,11 @@ class LikesController < ApplicationController
   before_action :set_likeable
 
   def create
-    p params
     current_user.add_like_to(@likeable)
 
     respond_to do |format|
       format.html {redirect_to :back}
-      format.js {}
+      format.js
     end 
   end
   
@@ -17,7 +16,7 @@ class LikesController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to :back}
-      format.js {}
+      format.js
     end 
   end
 

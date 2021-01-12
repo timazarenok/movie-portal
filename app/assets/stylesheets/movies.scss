@@ -19,6 +19,7 @@
 
 .attribute-link {
     color: #cfcdd1;
+    text-decoration: underline;
 }
 
 .attribute-value {
@@ -36,7 +37,6 @@
 
 .attribute-link:hover {
     color: #cc073c;
-    text-decoration: none;
 }
 
 .section-name {
@@ -84,18 +84,18 @@
 
 .actor-list {
     list-style: none;
-    width: 600px;
+    width: 900px;
     padding-inline-start: 0px;
     padding: 30px 0px;
 }
 
 .actor-list li {
     display: inline-block;
-    width: 100px;
-    height: 70px;
+    width: 200px;
+    height: 300px;
 }
 
 .actor-img {
-    width: 80px;
-    height: 50px;
+    width: 185px;
+    height: 250px;
 }

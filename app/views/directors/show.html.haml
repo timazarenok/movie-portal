@@ -3,7 +3,7 @@
     .row
       .col-4
         %h2= @director.full_name
-        .img.director-img{ src: "https://image.tmdb.org/t/p/w300#{@director.image}", alt: @director.full_name }
+        %img.director-img{ src: "https://image.tmdb.org/t/p/w300#{@director.image}", alt: @director.full_name }
         %br
         %ul.attributes-list
           %li
@@ -18,5 +18,7 @@
         %ul.home-movie-list
           -@director.movies.each do |movie|
             %li.movie-title
+              %img.movie-home-img{ src: "https://image.tmdb.org/t/p/w300#{movie.image}", alt: movie.name }
+              %br
               = link_to movie.name, movie_path(movie), class: 'link'
               .small= "#{movie.release_date.year}" #{movie.country}"

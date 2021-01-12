@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   resources :movies do
     resources :likes
+    resources :wishes
   end
 
   resources :directors, :actors
