@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_230602) do
+ActiveRecord::Schema.define(version: 2021_01_08_214950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,12 +32,11 @@ ActiveRecord::Schema.define(version: 2020_12_17_230602) do
   create_table "actors", force: :cascade do |t|
     t.string "full_name", null: false
     t.string "biography"
-    t.string "date_of_birth", null: false
+    t.string "date_of_birth"
     t.string "image"
-    t.bigint "country_id", null: false
+    t.string "place_of_birth"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["country_id"], name: "index_actors_on_country_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -55,12 +54,11 @@ ActiveRecord::Schema.define(version: 2020_12_17_230602) do
   create_table "directors", force: :cascade do |t|
     t.string "full_name", null: false
     t.string "biography"
-    t.date "date_of_birth", null: false
+    t.string "date_of_birth"
     t.string "image"
-    t.bigint "country_id", null: false
+    t.string "place_of_birth"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["country_id"], name: "index_directors_on_country_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -76,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_12_17_230602) do
   create_table "movies", force: :cascade do |t|
     t.string "name", null: false
     t.string "image", null: false
-    t.string "description", limit: 500
+    t.string "description"
     t.string "clip", null: false
     t.date "release_date", null: false
     t.time "duration"
@@ -175,8 +173,16 @@ ActiveRecord::Schema.define(version: 2020_12_17_230602) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "actors", "countries"
-  add_foreign_key "directors", "countries"
+  create_table "wishes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "wishable_type", null: false
+    t.bigint "wishable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_wishes_on_user_id"
+    t.index ["wishable_type", "wishable_id"], name: "index_wishes_on_wishable_type_and_wishable_id"
+  end
+
   add_foreign_key "likes", "users"
   add_foreign_key "movies", "categories"
   add_foreign_key "movies", "directors"
@@ -192,4 +198,5 @@ ActiveRecord::Schema.define(version: 2020_12_17_230602) do
   add_foreign_key "serials", "categories"
   add_foreign_key "serials", "directors"
   add_foreign_key "series", "seasons"
+  add_foreign_key "wishes", "users"
 end

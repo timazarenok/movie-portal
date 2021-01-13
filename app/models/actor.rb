@@ -5,7 +5,6 @@ class Actor < ApplicationRecord
   include Elasticsearch::Model::Callbacks
   include ElasticMyAnalyzer
   
-  belongs_to :country
   has_many :movies_actor
   has_many :movies, through: :movies_actor
 

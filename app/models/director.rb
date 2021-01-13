@@ -5,7 +5,6 @@ class Director < ApplicationRecord
   include Elasticsearch::Model::Callbacks
   include ElasticMyAnalyzer
 
-  belongs_to :country
   has_many :movies
 
   settings ES_SETTING do

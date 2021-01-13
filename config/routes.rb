@@ -7,12 +7,11 @@ Rails.application.routes.draw do
   
   resources :movies do
     resources :likes
+    resources :wishes
   end
 
   resources :directors, :actors
   get 'search', to: 'search#search'
-
-  get 'users/profile', as: 'user_root'
     
   root 'index#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

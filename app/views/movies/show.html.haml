@@ -3,17 +3,19 @@
   .container
     .row
       .col-4
-        .img.movie-img{ src: @movie.image, alt: @movie.name }
+        -if @movie.image 
+          %img.movie-img{ src: "https://image.tmdb.org/t/p/w300#{@movie.image}", alt: @movie.name }
+        -else
+          %img.movie-no-img
       .col-8
-        
     .row
       .col-4
         %br
-          %div{:id => "like-container#{@movie.id}"}
-            -if current_user.liked?("Movie", @movie.id)
-              =render("likes/unlike")
-            -else
-              =render("likes/like")
+          -# %div{:id => "like-container#{@movie.id}"}
+          -#   -if !current_user.nil? && current_user.liked?("Movie", @movie.id)
+          -#     =render("likes/unlike")
+          -#   -else
+          -#     =render("likes/like")
         %br
         %ul.attributes-list
           %li
@@ -35,5 +37,5 @@
         %ul.actor-list
           -@actors.each do |actor|
             %li
-              .img{ src: actor.image, class: 'actor-img'}
+              %img{ src: "https://image.tmdb.org/t/p/w185#{actor.image}", class: 'actor-img'}
               = link_to actor.full_name, actor_path(actor.id), class: 'link' 

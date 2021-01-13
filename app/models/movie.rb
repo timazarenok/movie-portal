@@ -13,7 +13,9 @@ class Movie < ApplicationRecord
   has_many :movies_actor
   has_many :actors, through: :movies_actor
   has_many :likes, as: :likeable
-  has_many :users, through: :like
+  has_many :liked_users, through: :like
+  has_many :wishes, as: :wishable
+  has_many :wished_users, through: :wish
 
   settings ES_SETTING do
     mappings dynamic: 'true' do

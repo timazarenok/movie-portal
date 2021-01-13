@@ -23,7 +23,7 @@ class MultySearch
 
   def run_elastic(search_word)
     Elasticsearch::Model
-      .search(search_query(search_word), MODELS_TO_SEARCH)
+    .search(search_query(search_word), MODELS_TO_SEARCH)
   end
 
   def save_data(data)
@@ -60,6 +60,7 @@ class MultySearch
   def build_hint(record)
     {
       name: record.respond_to?(:name) ? record.name : record.full_name,
+      image: record.image,
       type: hint_type(record)
     }
   end

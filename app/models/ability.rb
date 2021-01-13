@@ -7,7 +7,7 @@ class Ability
     user ||= User.new
     if user.has_role? :admin
       can :manage, :all
-    if user.has_role? :editor
+    elsif user.has_role? :editor
       can :crud, :all
     else
       can :read, :all
