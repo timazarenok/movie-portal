@@ -15,64 +15,83 @@
  *= require_self
  */
 
- @import "bootstrap";
-
- body { 
-  background-color: #111822;
- }
+@import "bootstrap";
+body {
+    background-color: #111822;
+}
 
 .form_container {
-  position: sticky; 
-  left: 40%; 
-  width: 300px;
+    position: sticky;
+    left: 40%;
+    width: 300px;
 }
 
 .form_header {
-  color: #cc073c;
-  font-weight: bold
+    color: #cc073c;
+    font-weight: bold
 }
 
 .input-group {
-  padding: 0px 0px 5px 0px;
+    padding: 0px 0px 5px 0px;
 }
 
 .form_button {
-  background-color: #cc073c;
-  color: #cfcdd1;
+    background-color: #cc073c;
+    color: #cfcdd1;
 }
 
-.check_box { 
-  color: #cc073c;
-  cursor: pointer;
-  background: #cc073c;
-  box-shadow: #cc073c;
+.check_box {
+    color: #cc073c;
+    cursor: pointer;
+    background: #cc073c;
+    box-shadow: #cc073c;
 }
 
-.navbar {
-  background-color: #111822;
+@media (min-width:800px) {
+    .navbar {
+        background-color: #111822;
+        height: 75px;
+        position: relative;
+        justify-content: space-between;
+    }
+    .nav-item {
+        display: inline;
+    }
+}
+
+@media (max-width:800px) {
+    .navbar {
+        background-color: #111822;
+        height: 45px;
+    }
+    .nav-item {
+        font-size: 16px;
+        display: inline;
+    }
 }
 
 .navbar-brand {
-  color: #cfcdd1;
+    color: #cfcdd1;
 }
 
 .navbar-brand:hover {
-  color: #cfcdd1;
+    color: #cfcdd1;
 }
+
 .nav-link {
-  color: #cfcdd1;
+    color: #cfcdd1;
 }
 
 .error {
-  list-style: none;
-  color: #cc073c;
-  width: 500px;
-  position: relative;
-  left: -50px;
+    list-style: none;
+    color: #cc073c;
+    width: 500px;
+    position: relative;
+    left: -50px;
 }
 
 .nav-link:hover {
-  color: #cc073c;
+    color: #cc073c;
 }
 
 //= require jquery3

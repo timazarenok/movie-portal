@@ -10,7 +10,7 @@ ActiveAdmin.register User do
   # or
   #
   controller do
-    before_action :show 
+    before_action :show
     def show
       redirect_to admin_root_path unless current_user.admin?
     end

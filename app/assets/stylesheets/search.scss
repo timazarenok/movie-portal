@@ -23,10 +23,47 @@
 
 .search-list li {
     width: 250px;
-    height: 350px;
     display: inline-block;
+    position: absolute;
 }
 
-.search-item {
-    color: #cfcdd1;
+a.dropdown-item {
+    color: #111822;
+    border-radius: 10px;
+}
+
+a.dropdown-item:active {
+    color: #cc073c;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media(min-width: 1000px) {
+    .header-search-item {
+        color: #cfcdd1;
+        top: 25px;
+        display: inline-block;
+        width: 300px;
+        position: absolute;
+        left: 75%;
+    }
+    .dropdown {
+        width: 230px;
+        opacity: 95%;
+        left: 0px;
+        background-color: white;
+        padding: 0px;
+        list-style: none;
+        color: #cc073c;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .header-search-item {
+        display: none;
+    }
+    .dropdown {
+        display: none;
+    }
 }

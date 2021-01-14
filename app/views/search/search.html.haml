@@ -1,0 +1,12 @@
+= form_for search_path, method: :get do |f|
+  .search-item
+    = text_field_tag :q, params[:q], onkeyup: "$(this).parent('form').submit();"
+  %ul.home-movie-list
+    -@results.each do |result|
+      %li
+        %img.search-img{ src: "https://image.tmdb.org/t/p/w185#{result[:hint][:image]}", alt: result[:hint][:name] }
+        %h4= result[:hint][:name]
+        %p= result[:hint][:preview]
+        %small= result[:hint][:type]
+        %br
+        = link_to 'Подробнее', search_result_link(result), class: 'link'
