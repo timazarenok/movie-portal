@@ -1,12 +1,17 @@
-= form_for search_path, method: :get do |f|
-  .search-item
-    = text_field_tag :q, params[:q], onkeyup: "$(this).parent('form').submit();"
-  %ul.home-movie-list
+.main 
+  = form_for search_path, method: :get do |f|
+    .search-item
+      = text_field_tag :q, params[:q], onkeyup: "$(this).parent('form').submit();"
+  %h2.section-name Search results
+  %ul.search-list
     -@results.each do |result|
       %li
-        %img.search-img{ src: "https://image.tmdb.org/t/p/w185#{result[:hint][:image]}", alt: result[:hint][:name] }
-        %h4= result[:hint][:name]
-        %p= result[:hint][:preview]
-        %small= result[:hint][:type]
+        -unless result[:hint][:image].nil?
+          %img.search-img{ src: "https://image.tmdb.org/t/p/w185#{result[:hint][:image]}", alt: result[:hint][:name] }
+        -else
+          %img.search-no-img
         %br
+        %h4= result[:hint][:name]
+        %h6= result[:hint][:type]
         = link_to 'More', search_result_link(result), class: 'link'
+  =paginate @results

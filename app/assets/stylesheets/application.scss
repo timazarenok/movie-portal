@@ -94,6 +94,22 @@ body {
     color: #cc073c;
 }
 
+.paginate-button {
+    color: #cc073c;
+    background-color: #111822;
+    width: 75px;
+    height: 35px;
+    border: solid 1px #cc073c;
+}
+
+.current-paginate-button {
+    color: #111822;
+    background-color: #cc073c;
+    border: solid 1px #111822;
+    width: 75px;
+    height: 35px;
+}
+
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets

@@ -2,29 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .search-img {
-    height: auto;
-    width: auto;
+    height: 300px;
+    width: 250px;
 }
 
 .search-no-img {
     height: 300px;
-    width: 300px;
+    width: 250px;
     border: 1px solid;
 }
 
 .search-list {
     list-style: none;
-    white-space: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    height: 450px;
+    position: relative;
     padding: 30px 0px;
+    height: 450px;
 }
 
 .search-list li {
-    width: 250px;
     display: inline-block;
-    position: absolute;
+    width: 300px;
+    height: 250px;
 }
 
 a.dropdown-item {

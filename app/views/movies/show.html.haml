@@ -11,11 +11,11 @@
     .row
       .col-4
         %br
-          -# %div{:id => "like-container#{@movie.id}"}
-          -#   -if !current_user.nil? && current_user.liked?("Movie", @movie.id)
-          -#     =render("likes/unlike")
-          -#   -else
-          -#     =render("likes/like")
+          %div{:id => "like-container#{@movie.id}"}
+            -if !current_user.nil? && current_user.liked?("Movie", @movie.id)
+              =render("likes/unlike")
+            -else
+              =render("likes/like")
         %br
         %ul.attributes-list
           %li
@@ -31,11 +31,21 @@
             .attribute-name release date
             .attribute-value= @movie.release_date
       .col-8
-        .section-name Pilot
+        %h4.section-name Overview
         .text-justify= @movie.description
-        .section-name Actors
+        %h4.section-name Actors
         %ul.actor-list
-          -@actors.each do |actor|
-            %li
-              %img{ src: "https://image.tmdb.org/t/p/w185#{actor.image}", class: 'actor-img'}
-              = link_to actor.full_name, actor_path(actor.id), class: 'link' 
+          =render @actors
+    .row
+      %h4.section-name You might like it
+      %ul.home-movie-list
+        -@movies.each do |movie|
+          %li.movie-title
+            -if movie.image
+              %img.movie-home-img{ src: "https://image.tmdb.org/t/p/w300#{movie.image}", alt: movie.name }
+            - else
+              %img.movie-no-img    
+            %br
+            = link_to movie.name, movie_path(movie), class: 'link'
+            .small= movie.release_date.year
+        
