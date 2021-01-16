@@ -1,5 +1,3 @@
-require '/home/ghto/Desktop/movie-portal/lib/elastic_my_analyzer.rb'
-
 class Actor < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks

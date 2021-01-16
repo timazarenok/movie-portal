@@ -1,5 +1,4 @@
 require 'elasticsearch/model'
-require '/home/ghto/Desktop/movie-portal/lib/elastic_my_analyzer.rb'
 
 class Movie < ApplicationRecord
   include Elasticsearch::Model
