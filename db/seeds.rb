@@ -6,22 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first
 
-require('/home/ghto/Desktop/movie-portal/app/services/category/category_scrapper.rb')
-require('/home/ghto/Desktop/movie-portal/app/services/country/country_scrapper.rb')
-require('/home/ghto/Desktop/movie-portal/app/services/person/person_scrapper.rb')
-require('/home/ghto/Desktop/movie-portal/app/services/movies/movie_scrapper.rb')
-require('/home/ghto/Desktop/movie-portal/app/services/service/service_scrapper.rb')
-
 Director.__elasticsearch__.create_index!(force: true)
 Actor.__elasticsearch__.create_index!(force: true)
 Serial.__elasticsearch__.create_index!(force: true)
 Movie.__elasticsearch__.create_index!(force: true)
 
-service = ServiceScrapper.new(ENV["TMDB_SESSION_URL"])
+service = Service::ServiceScrapper.new(ENV["TMDB_SESSION_URL"])
 service.set_guest_id
 
-person_scrapper = PersonScrapper.new(service)
-category_scrapper = CategoryScrapper.new(service)
+person_scrapper = Person::PersonScrapper.new(service)
+category_scrapper = Categories::CategoryScrapper.new(service)
 category_scrapper.getCategories
-m_s = MovieScrapper.new(service)
+m_s = Movies::MovieScrapper.new(service)
 m_s.getList(7, person_scrapper)
