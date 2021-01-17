@@ -29,15 +29,15 @@ class User < ApplicationRecord
   end
 
   def add_wish_to(wishable_obj)
-    wishes.where(likeable: likeable_obj).first_or_create
+    wishes.where(wishable: wishable_obj).first_or_create
   end
 
   def remove_wish_from(wishable_obj)
-    wishes.where(likeable: likeable_obj).destroy_all
+    wishes.where(wishable: wishable_obj).destroy_all
   end
 
   def wished?(resource_type, resource_id)
-    wishes.exists?(wishes_type: resource_type, wishes_id: resource_id)
+    wishes.exists?(wishable_type: resource_type, wishable_id: resource_id)
   end
 
 end

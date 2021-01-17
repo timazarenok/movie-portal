@@ -15,4 +15,6 @@
     .nav-item
       = link_to 'Log in', user_session_path, class: 'nav-link'
   .nav-item
-    =render('search/search')
+    = link_to 'Search', search_path, class: 'nav-link'
+-unless current_page?(search_path) || current_page?(new_user_registration_path) || current_page?(user_session_path) || current_page?(new_user_password_path)
+  = render("search/search")

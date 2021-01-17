@@ -1,1 +1,3 @@
-=button_to "Unlike", movie_like_path(movie, 1), method: "delete", remote: true
+= link_to movie_like_path(movie, 1), method: "delete", remote: true do
+  %h3.bi.bi-heart-fill
+%h3.count= movie.likes.count

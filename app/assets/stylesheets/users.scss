@@ -1,51 +1,51 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
-
 .user-main {
-  position: absolute;
-  left: 20%;
-  top: 100px;
-  color: #cfcdd1;
+    position: relative;
+    color: #cfcdd1;
+    width: 80%;
+    left: 15%;
 }
 
 .profile-title {
-  color: #cc073c;
+    color: #cc073c;
+    width: 100px;
 }
 
 .user-img {
-  height: 300px;
-  width: 300px;
-  border: 3px solid;
-  border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    border: 3px solid;
+    border-radius: 50%;
 }
 
 .user-email {
-  display: inline-flex;  
-  font-size: 15pt;
-  width: auto;
-  height: 50px;
-  position: relative;
-  top: 20px;
+    display: inline-flex;
+    font-size: 15pt;
+    width: auto;
+    height: 50px;
+    position: relative;
+    top: 20px;
 }
 
 .panel {
-  position: relative;
-  top: 20px;
-  left: 50px;
-  height: 200px;
-  width: 600px;
+    position: relative;
+    top: 20px;
+    left: 50px;
+    height: 200px;
+    width: 600px;
 }
 
 .email-title {
-  color: #cc073c;
-  padding: 0px 20px 0px 0px;
+    color: #cc073c;
+    padding: 0px 20px 0px 0px;
 }
+
 .email-value {
-  color: #cfcdd1;
+    color: #cfcdd1;
 }
 
 .user-col {
-  width: 500px;
+    width: 500px;
 }

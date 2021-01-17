@@ -1,1 +1,3 @@
-= link_to "Like", movie_likes_path(movie_id: movie.id), remote: true, method: :post
+= link_to movie_likes_path(movie_id: movie.id), remote: true, method: :post do
+  %h3.bi.bi-heart
+%h3.count= movie.likes.count

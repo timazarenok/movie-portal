@@ -1,0 +1,3 @@
+= link_to movie_wish_path(movie, 1), method: "delete", remote: true do
+  %h3.bi.bi-star-fill
+%h3.count= movie.wishes.count

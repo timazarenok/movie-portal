@@ -61,7 +61,7 @@ class MultySearch
     {
       name: record.respond_to?(:name) ? record.name : record.full_name,
       image: record.image,
-      type: hint_type(record)
+      type: record.class.to_s
     }
   end
 

@@ -2,31 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .search-img {
-    height: auto;
-    width: auto;
+    height: 300px;
+    width: 250px;
 }
 
 .search-no-img {
     height: 300px;
-    width: 300px;
+    width: 250px;
     border: 1px solid;
 }
 
 .search-list {
     list-style: none;
-    white-space: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    height: 450px;
+    position: relative;
     padding: 30px 0px;
+    height: 450px;
 }
 
 .search-list li {
-    width: 250px;
-    height: 350px;
     display: inline-block;
+    width: 300px;
+    height: 250px;
 }
 
-.search-item {
-    color: #cfcdd1;
+a.dropdown-item {
+    color: #111822;
+    border-radius: 10px;
+}
+
+a.dropdown-item:active {
+    color: #cc073c;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media(min-width: 1000px) {
+    .header-search-item {
+        color: #cfcdd1;
+        top: 5%;
+        width: 300px;
+        position: absolute;
+        left: 75%;
+    }
+    .dropdown {
+        width: 230px;
+        opacity: 95%;
+        background-color: white;
+        padding: 0px;
+        list-style: none;
+        color: #cc073c;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .header-search-item {
+        display: none;
+    }
+    .dropdown {
+        display: none;
+    }
 }
