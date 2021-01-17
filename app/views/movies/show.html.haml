@@ -11,11 +11,17 @@
     .row
       .col-4
         %br
-          %div{:id => "like-container#{@movie.id}"}
-            -if !current_user.nil? && current_user.liked?("Movie", @movie.id)
-              =render("likes/unlike")
-            -else
-              =render("likes/like")
+        .control-container
+          #like-container
+            - if !current_user.nil? && current_user.liked?("Movie", @movie.id)
+              = render("likes/unlike", movie: @movie)
+            - else
+              = render("likes/like", movie: @movie)
+          #wish-container
+            -if !current_user.nil? && current_user.wished?("Movie", @movie.id)
+              = render("wishes/unwish", movie: @movie)
+            - else
+              = render("wishes/wish", movie: @movie)
         %br
         %ul.attributes-list
           %li
@@ -48,4 +54,3 @@
             %br
             = link_to movie.name, movie_path(movie), class: 'link'
             .small= movie.release_date.year
-        

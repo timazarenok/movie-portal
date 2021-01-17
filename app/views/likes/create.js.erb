@@ -1,1 +1,1 @@
-$("#like_container<%= params[:movie_id]%> ").html("=render("likes/like")")
+document.activeElement.parentElement.innerHTML = ("<%= j(render(partial: 'likes/unlike', locals: { movie: @likeable })) %>")

@@ -2,14 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .user-main {
-    position: absolute;
-    left: 20%;
-    top: 10%;
+    position: relative;
     color: #cfcdd1;
+    width: 80%;
+    left: 15%;
 }
 
 .profile-title {
     color: #cc073c;
+    width: 100px;
 }
 
 .user-img {
