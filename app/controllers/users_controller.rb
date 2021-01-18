@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   
   def profile
     @user = current_user
-    @liked_movies = @user.liked_movies
   end
 
 end

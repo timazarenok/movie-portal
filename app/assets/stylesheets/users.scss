@@ -13,28 +13,56 @@
     width: 100px;
 }
 
+.profile-info {
+    width: 15%;
+    float: left;
+}
+
+.user-statistics {
+    width: 70%;
+    float: right;
+}
+
 .user-img {
     height: 300px;
     width: 300px;
-    border: 3px solid;
     border-radius: 50%;
 }
 
 .user-email {
     display: inline-flex;
-    font-size: 15pt;
-    width: auto;
-    height: 50px;
     position: relative;
+    font-size: 18px;
     top: 20px;
 }
 
 .panel {
-    position: relative;
-    top: 20px;
-    left: 50px;
-    height: 200px;
-    width: 600px;
+    margin: 20px;
+    max-height: 75px;
+    text-align: center;
+    width: 400px;
+}
+
+.diagrams {
+    text-align: center;
+    margin: 50px;
+    width: 350px;
+}
+
+.panel-item {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.panel-label {
+    display: block;
+    font-size: 16px;
+}
+
+.count {
+    font-size: 18px;
+    padding: 3px;
 }
 
 .email-title {
@@ -44,8 +72,4 @@
 
 .email-value {
     color: #cfcdd1;
-}
-
-.user-col {
-    width: 500px;
 }

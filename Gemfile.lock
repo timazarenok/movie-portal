@@ -94,6 +94,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    chartkick (3.4.2)
     childprocess (3.0.0)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
@@ -383,6 +384,7 @@ DEPENDENCIES
   byebug
   cancancan
   capybara (>= 2.15)
+  chartkick
   devise
   dotenv-rails
   elasticsearch-model
