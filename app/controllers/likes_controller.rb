@@ -7,7 +7,7 @@ class LikesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to :back }
-      format.js { render layout: false}
+      format.js { render layout: false }
     end 
   end
 

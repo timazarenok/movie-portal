@@ -12,6 +12,11 @@
     border: 1px solid;
 }
 
+.bi.bi-search {
+    color: #cc073c;
+    display: inline-block;
+}
+
 .search-list {
     list-style: none;
     position: relative;
@@ -40,18 +45,20 @@ a.dropdown-item:active {
     .header-search-item {
         color: #cfcdd1;
         top: 5%;
-        width: 300px;
+        width: 350px;
+        display: inline;
         position: absolute;
         left: 75%;
     }
     .dropdown {
-        width: 230px;
+        width: 250px;
+        left: 30px;
         opacity: 95%;
         background-color: white;
         padding: 0px;
         list-style: none;
         color: #cc073c;
-        border-radius: 10px;
+        border-radius: 5px;
     }
 }
 

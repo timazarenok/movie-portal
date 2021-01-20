@@ -38,6 +38,7 @@ body {
 .form_button {
     background-color: #cc073c;
     color: #cfcdd1;
+    margin: 10px;
 }
 
 .check_box {
@@ -70,14 +71,8 @@ body {
     }
 }
 
-.navbar-brand {
-    color: #cfcdd1;
-}
-
-.navbar-brand:hover {
-    color: #cfcdd1;
-}
-
+.navbar-brand,
+.navbar-brand:hover,
 .nav-link {
     color: #cfcdd1;
 }

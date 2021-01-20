@@ -1,17 +1,26 @@
 .user-main
   .profile-info
     %h3.profile-title Profile
-    =image_tag 'no_photo.png', class: "user-img"
-    .user-email
-      .email-title Email
-      .email-value= @user.email
+    -if @user.image.attached?
+      =image_tag @user.image, class: "user-img"
+    -else
+      =image_tag 'no_photo.png', class: "user-img"
+    .attribute-block
+      .attribute-title Email
+      .attribute-value= @user.email
+    .attribute-block
+      .attribute-title Name
+      .attribute-value= @user.name
+    .attribute-block
+      .attribute-title Surname
+      .attribute-value= @user.surname
   .user-statistics
     .diagrams
-      = pie_chart @user.liked_movies.group(:category).count.map { |item| [item[0].name, item[1]] }
-    .panel
-      %a.panel-item.link
+      = pie_chart @user.liked_movies.group(:category).count.map { |item| [item[0].name, item[1]] }, donut: true
+    %ul.panel.nav-tabs#info
+      %a.nav-link.active{href: "#liked"}
         .count=@user.liked_movies.count
         .panel-label Liked
-      %a.panel-item.link
+      %a.nav-link{href: "#wished"}
         .count=@user.wished_movies.count
         .panel-label Wished

@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
   
   def profile
-    @user = current_user
+    @user = User.find(current_user.id)
   end
-
 end

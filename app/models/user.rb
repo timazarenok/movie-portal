@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :wishes
   has_many :liked_movies, through: :likes, source: :likeable, source_type: "Movie"
   has_many :wished_movies, through: :wishes, source: :wishable, source_type: "Movie"
+  has_one_attached :image
   
   enum role: [:user, :editor, :admin]
 

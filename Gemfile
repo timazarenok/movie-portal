@@ -39,6 +39,7 @@ gem 'open-uri'
 gem 'dotenv-rails',:groups => [:development, :test], require: 'dotenv/rails-now'
 gem 'kaminari', '>= 1.2'
 gem "chartkick"
+gem 'activestorage'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
