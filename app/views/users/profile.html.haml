@@ -6,6 +6,9 @@
     -else
       =image_tag 'no_photo.png', class: "user-img"
     .attribute-block
+      = link_to edit_user_registration_path do
+        %h3.bi.bi-pencil
+    .attribute-block
       .attribute-title Email
       .attribute-value= @user.email
     .attribute-block
@@ -15,12 +18,36 @@
       .attribute-title Surname
       .attribute-value= @user.surname
   .user-statistics
+    %h3.profile-title Statistics
     .diagrams
-      = pie_chart @user.liked_movies.group(:category).count.map { |item| [item[0].name, item[1]] }, donut: true
-    %ul.panel.nav-tabs#info
-      %a.nav-link.active{href: "#liked"}
+      .diagrams-item
+        = pie_chart @user.liked_movies.group(:category).count.map { |item| [item[0].name, item[1]] }, donut: true
         .count=@user.liked_movies.count
         .panel-label Liked
-      %a.nav-link{href: "#wished"}
+      .diagrams-item
+        = pie_chart @user.wished_movies.group(:category).count.map { |item| [item[0].name, item[1]] }, donut: true
         .count=@user.wished_movies.count
         .panel-label Wished
+    .h3.section-name Liked 
+    %ul.liked-movie-list
+      -@user.liked_movies.each do |movie|
+        %li.liked-movie-item
+          -if movie.image
+            %img.liked-movie-img{ src: "https://image.tmdb.org/t/p/w300#{movie.image}", alt: movie.name }
+          - else
+            %img.movie-no-img    
+          %br
+          = link_to movie.name, movie_path(movie), class: 'link'
+          .small= movie.release_date.year
+    .h3.section-name Wished 
+    %ul.liked-movie-list
+      -@user.wished_movies.each do |movie|
+        %li.liked-movie-item
+          -if movie.image
+            %img.liked-movie-img{ src: "https://image.tmdb.org/t/p/w300#{movie.image}", alt: movie.name }
+          - else
+            %img.movie-no-img    
+          %br
+          = link_to movie.name, movie_path(movie), class: 'link'
+          .small= movie.release_date.year
+        
