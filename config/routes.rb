@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :movies do
     resources :likes
     resources :wishes
+    resources :comments
   end
+
 
   resources :directors, :actors
   get 'search', to: 'search#search'

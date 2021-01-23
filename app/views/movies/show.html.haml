@@ -43,6 +43,15 @@
         %ul.actor-list
           =render @actors
     .row
+      .col-12
+        %h4.section-name= "Comments (#{@movie.comments.count})"
+        %br
+        %ul.be-comment-block#comments
+          =render @comments
+        =paginate @comments
+        -if !current_user.nil?
+          =render("comments/create", commentable: @movie)
+    .row
       %h4.section-name You might like it
       %ul.home-movie-list
         -@movies.each do |movie|

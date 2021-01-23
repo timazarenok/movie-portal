@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
 
   def show
     get_actors
+    get_comments
   end
 
   private
@@ -22,5 +23,9 @@ class MoviesController < ApplicationController
 
   def get_actors
     @actors ||= @movie.actors
+  end
+  
+  def get_comments
+    @comments = Kaminari.paginate_array(@movie.comments).page(params[:page]).per(4)
   end
 end

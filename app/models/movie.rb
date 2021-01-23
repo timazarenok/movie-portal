@@ -15,6 +15,9 @@ class Movie < ApplicationRecord
   has_many :liked_users, through: :like
   has_many :wishes, as: :wishable
   has_many :wished_users, through: :wish
+  has_many :comments, as: :commentable
+
+  paginates_per 4
 
   settings ES_SETTING do
     mappings dynamic: 'true' do
