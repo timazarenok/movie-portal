@@ -2,13 +2,14 @@ class User < ApplicationRecord
   after_create :assign_default_role
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :confirmable, :registerable,
          :recoverable, :rememberable, :validatable
   
   has_many :likes
   has_many :wishes
   has_many :liked_movies, through: :likes, source: :likeable, source_type: "Movie"
   has_many :wished_movies, through: :wishes, source: :wishable, source_type: "Movie"
+  has_one_attached :image
   
   enum role: [:user, :editor, :admin]
 

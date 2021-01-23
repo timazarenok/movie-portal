@@ -6,9 +6,19 @@
       .input-group
         .input-group-prepend
           .input-group-text.bg-light.text-dark  Email
-        = f.email_field :email, :required => false, :autofocus => true, placeholder: 'email', class: 'form-control'
-      - if @minimum_password_length
-        .small.form-text.text-muted (#{@minimum_password_length} characters minimum)
+          = f.email_field :email, :required => true, :autofocus => true, placeholder: 'email', class: 'form-control'
+    .field
+      .input-group
+        .input-group-prepend
+          .input-group-text.bg-light.text-dark Name
+        = f.text_field :name, :required => false, :autofocus => true, placeholder: 'name', class: 'form-control'
+    .field  
+      .input-group  
+        .input-group-prepend
+          .input-group-text.bg-light.text-dark Surname
+        = f.text_field :surname, :required => false, :autofocus => true, placeholder: 'surname', class: 'form-control'
+    - if @minimum_password_length
+      .small.form-text.text-muted (#{@minimum_password_length} characters minimum)
     .field
       .input-group
         .input-group-prepend

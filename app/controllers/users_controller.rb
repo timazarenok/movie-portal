@@ -6,8 +6,6 @@ class UsersController < ApplicationController
   end
   
   def profile
-    @user = current_user
-    @liked_movies = @user.liked_movies
+    @user = User.find(current_user.id)
   end
-
 end
