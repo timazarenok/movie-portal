@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'index#index'
+
   devise_for :users
   {class_name: 'User'}.merge(ActiveAdmin::Devise.config)
   ActiveAdmin.routes(self)
@@ -14,7 +17,6 @@ Rails.application.routes.draw do
 
   resources :directors, :actors
   get 'search', to: 'search#search'
-    
-  root 'index#index'
+  get '/auth/:provider/callback', to: 'sessions#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

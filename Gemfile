@@ -28,6 +28,7 @@ gem 'haml'
 gem 'html2haml'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-github'
 gem 'jquery-rails'
 gem 'activeadmin'
 gem 'faker'
@@ -40,6 +41,8 @@ gem 'dotenv-rails',:groups => [:development, :test], require: 'dotenv/rails-now'
 gem 'kaminari', '>= 1.2'
 gem "chartkick"
 gem 'activestorage'
+gem "omniauth-rails_csrf_protection"
+gem 'activeadmin-searchable_select'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

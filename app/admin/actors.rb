@@ -1,4 +1,4 @@
-ActiveAdmin.register Director do
+ActiveAdmin.register Actor do
 
   index do
     selectable_column
