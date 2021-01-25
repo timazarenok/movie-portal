@@ -1,3 +1,3 @@
-= link_to movie_like_path(movie, 1), method: "delete", remote: true do
+= link_to [likeable, Like.create], method: "delete", remote: true do
   %h3.bi.bi-heart-fill
-%h3.count= movie.likes.count
+%h3.count= likeable.likes.count

@@ -1,0 +1,64 @@
+.movie-main
+  %h3.font-weight-bold= @serial.name
+  .container
+    .row
+      .col-4
+        -if @serial.image 
+          %img.movie-img{ src: "https://image.tmdb.org/t/p/w300#{@serial.image}", alt: @serial.name }
+        -else
+          %img.movie-no-img
+      .col-8
+    .row
+      .col-4
+        %br
+        .control-container
+          #like-container
+            - if !current_user.nil? && current_user.liked?("Serial", @serial.id)
+              = render("likes/unlike", likeable: @serial)
+            - else
+              = render("likes/like", likeable: @serial)
+          #wish-container
+            -if !current_user.nil? && current_user.wished?("Serial", @serial.id)
+              = render("wishes/unwish", wishable: @serial)
+            - else
+              = render("wishes/wish", wishable: @serial)
+        %br
+        %ul.attributes-list
+          %li
+            .attribute-name director
+            = link_to "#{@serial.director&.full_name}", director_path(@serial.director), class: 'attribute-link'
+          %li
+            .attribute-name category
+            .attribute-value= @serial.category&.name
+          %li
+            .attribute-name release date
+            .attribute-value= @serial.release_date
+      .col-8
+        %h4.section-name Overview
+        .text-justify= @serial.description
+        %h4.section-name Seasons
+        %ul.actor-list
+          =render @seasons
+    .row
+      .col-12
+        %h4.section-name= "Comments (#{@serial.comments.count})"
+        %br
+        %ul.be-comment-block#comments
+          =render @comments
+        =paginate @comments
+        -if !current_user.nil?
+          =render("comments/create", commentable: @serial)
+    .row
+      %h4.section-name You might like it
+      %br
+      %ul.home-movie-list
+        -@serials.each do |serial|
+          %li.movie-title
+            %br
+            -if serial.image
+              %img.movie-home-img{ src: "https://image.tmdb.org/t/p/w300#{serial.image}", alt: serial.name }
+            - else
+              %img.movie-no-img    
+            %br
+            = link_to serial.name, serial_path(serial), class: 'link'
+            .small= serial.release_date.year

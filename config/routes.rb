@@ -8,8 +8,20 @@ Rails.application.routes.draw do
   get 'users/profile', as: 'user_root'
 
   resources :movies do
-    resources :likes
-    resources :wishes
+    resources :likes, only: [:create, :destroy]
+    resources :wishes, only: [:create, :destroy]
+    resources :comments
+  end
+
+  resources :serials do 
+    resources :likes, only: [:create, :destroy]
+    resources :wishes, only: [:create, :destroy]
+    resources :comments
+  end
+
+  resources :seasons do 
+    resources :likes, only: [:create, :destroy]
+    resources :wishes, only: [:create, :destroy]
     resources :comments
   end
 

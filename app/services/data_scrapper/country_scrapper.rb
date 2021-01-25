@@ -1,4 +1,4 @@
-module Country
+module DataScrapper
   class CountryScrapper
     def initialize(service)
       @guest_id = service.guest_id

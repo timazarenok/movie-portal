@@ -23,6 +23,8 @@ class LikesController < ApplicationController
   private
 
   def set_likeable
-    @likeable = Movie.find(params[:movie_id])
+    @likeable = Movie.find(params[:movie_id]) unless params[:movie_id].nil?
+    @likeable = Serial.find(params[:serial_id]) unless params[:serial_id].nil?
+    @likeable
   end
 end

@@ -1,0 +1,66 @@
+.movie-main
+  %h3.font-weight-bold= @season.name
+  .container
+    .row
+      .col-4
+        -if @season.image 
+          %img.movie-img{ src: "https://image.tmdb.org/t/p/w300#{@season.image}", alt: @season.name }
+        -else
+          %img.movie-no-img
+      .col-8
+    .row
+      .col-4
+        %br
+        .control-container
+          #like-container
+            - if !current_user.nil? && current_user.liked?("Movie", @season.id)
+              = render("likes/unlike", likeable: @season)
+            - else
+              = render("likes/like", likeable: @season)
+          #wish-container
+            -if !current_user.nil? && current_user.wished?("Movie", @season.id)
+              = render("wishes/unwish", wishable: @season)
+            - else
+              = render("wishes/wish", wishable: @season)
+        %br
+      .col-8
+        %h4.section-name Overview
+        .text-justify= @season.description
+    .row
+      .col-12
+        %h4.section-name Actors
+        %ul.actor-list
+          =render @actors
+    .row
+      .col-12
+        %h4.section-name Series
+        %ul.actor-list
+          =render @series
+    .row
+      .col-12
+        %h4.section-name= "Comments (#{@season.comments.count})"
+        %br
+        %ul.be-comment-block#comments
+          =render @comments
+        =paginate @comments
+        -if !current_user.nil?
+          =render("comments/create", commentable: @season)
+    -if @seasons.count > 0
+      .row
+        .col-12
+          %h4.section-name All seasons
+          %ul.actor-list
+            =render @seasons
+    .row
+      .col-12
+        %h4.section-name You might like it
+        %ul.home-movie-list
+          -@serials.each do |serial|
+            %li.movie-title
+              -if serial.image
+                %img.movie-home-img{ src: "https://image.tmdb.org/t/p/w300#{serial.image}", alt: serial.name }
+              - else
+                %img.movie-no-img    
+              %br
+              = link_to serial.name, serial_path(serial), class: 'link'
+              .small= serial.release_date.year

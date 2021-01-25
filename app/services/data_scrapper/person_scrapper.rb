@@ -1,4 +1,4 @@
-module Person
+module DataScrapper
   class PersonScrapper
     def initialize(service)
       @guest_id = service.guest_id
@@ -30,9 +30,17 @@ module Person
       end
     end
 
+    def set_season_actors(id, data)
+      data.each do |el|
+        actor = create_actor(get_person(el['id']))
+        SeasonsActor.create(season: Season.find(id), actor: actor)
+      end
+    end
+
     def get_director(data)
-      person = data.find { |el| el['job'] = 'Director' }
-      create_director(get_person(person['id']))
+        person = data.find { |el| el['job'] = 'Director' }
+        return Director.find(1) if person.nil?
+        create_director(get_person(person['id']))
     end
   end
 end

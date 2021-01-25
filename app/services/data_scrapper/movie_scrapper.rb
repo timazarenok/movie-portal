@@ -1,4 +1,4 @@
-module Movies
+module DataScrapper
   class MovieScrapper
     def initialize(service)
       @guest_id = service.guest_id
@@ -12,7 +12,7 @@ module Movies
         director = p_s.get_director(credits['crew'])
         movie_data = getMovie(el['id'])
         movie = Movie.create(name: movie_data['original_title'], image: movie_data['poster_path'],
-                             description: movie_data['overview'], clip: '', release_date: movie_data['release_date'], duration: movie_data['run_time'], category: Category.find_by(name: movie_data['genres'][0]['name']), director: director)
+                            description: movie_data['overview'], clip: '', release_date: movie_data['release_date'], duration: movie_data['run_time'], category: Category.find_by(name: movie_data['genres'][0]['name']), director: director)
         p_s.set_movie_actors(movie.id, credits['cast'])
       end
     end
@@ -23,7 +23,7 @@ module Movies
     end
 
     def getCredits(id)
-      url = "https://api.themoviedb.org/3/movie/#{id}/credits?api_key=#{ENV['TMDB_API_KEY']}&language=en-US&append_to_response=#{ENV['GUEST_SESSION_ID']}"
+      url = "https://api.themoviedb.org/3/movie/#{id}/credits?api_key=#{ENV['TMDB_API_KEY']}&language=en-US&append_to_response=#{@guest_id}"
       JSON.parse(URI.open(url).read)
     end
   end

@@ -23,6 +23,8 @@ class WishesController < ApplicationController
   private
 
   def set_wishable
-    @wishable = Movie.find(params[:movie_id])
+    @wishable = Movie.find(params[:movie_id]) unless params[:movie_id].nil?
+    @wishable = Serial.find(params[:serial_id]) unless params[:serial_id].nil?
+    @wishable
   end
 end

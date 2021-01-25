@@ -1,4 +1,4 @@
-module Service
+module DataScrapper
   class ServiceScrapper
     attr_reader :guest_id
 

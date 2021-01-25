@@ -1,0 +1,4 @@
+%li
+  %img{ src: "https://image.tmdb.org/t/p/w185#{serie.image}", class: 'actor-img'}
+  %br
+  = link_to serie.name, season_path(serie.id), class: 'link'

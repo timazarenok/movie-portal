@@ -27,6 +27,7 @@ ActiveAdmin.register Movie do
       f.input :duration, as: :time_picker
       f.input(:category, as: :searchable_select)
       f.input(:director, as: :searchable_select)
+      f.input :clip
       f.input :image
     end
     f.actions

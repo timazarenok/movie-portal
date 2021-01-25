@@ -16,7 +16,8 @@ class CommentsController < ApplicationController
 
   def set_commentable
     @commentable = Movie.find(params[:movie_id]) unless params[:movie_id].nil?
-    @commentable = Serial.find(params[:movie_id]) unless params[:serial_id].nil?
+    @commentable = Serial.find(params[:serial_id]) unless params[:serial_id].nil?
+    @commentable = Season.find(params[:season_id]) unless params[:season_id].nil?
     @commentable
   end
 
