@@ -4,7 +4,7 @@ class IndexController < ApplicationController
     get_tv_serials
   end
 
-  private 
+  private
 
   def get_films
     @movies = Movie.take(25)

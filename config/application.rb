@@ -11,8 +11,8 @@ module MoviePortal
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.assets.initialize_on_precompile = false
-    config.eager_load_paths += %W(#{config.root}/lib)
-    config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/services)
+    config.eager_load_paths += %W[#{config.root}/lib]
+    config.autoload_paths += %W[#{config.root}/lib #{config.root}/app/services]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

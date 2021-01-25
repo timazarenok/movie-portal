@@ -2,7 +2,7 @@ class Serial < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   include ElasticMyAnalyzer
-  
+
   belongs_to :category
   belongs_to :director
   has_many :seasons
@@ -12,5 +12,4 @@ class Serial < ApplicationRecord
       indexes :name, analyzer: 'my_analyzer'
     end
   end
-
 end

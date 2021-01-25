@@ -3,7 +3,7 @@ class DirectorsController < ApplicationController
   def show; end
 
   private
-  
+
   def set_director
     @director ||= Director.find(params[:id])
   end

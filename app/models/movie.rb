@@ -25,7 +25,7 @@ class Movie < ApplicationRecord
     end
   end
 
-  def as_indexed_json(params = {})
+  def as_indexed_json(_params = {})
     {
       name: name,
       image: image,
@@ -34,21 +34,21 @@ class Movie < ApplicationRecord
       release_date: release_date,
       duration: duration,
       category_id: category_id,
-      director_id: director_id 
+      director_id: director_id
     }
   end
 
   def self.search_published(query)
-    self.__elasticsearch__.search(query: {
-      bool: {
-        must: {
-          multi_match: {
-            query: query,
-            fields: %w(name full_name),
-            operator: 'and'
-          }
-        },
-      },
-    }).results
+    __elasticsearch__.search(query: {
+                               bool: {
+                                 must: {
+                                   multi_match: {
+                                     query: query,
+                                     fields: %w[name full_name],
+                                     operator: 'and'
+                                   }
+                                 }
+                               }
+                             }).results
   end
 end

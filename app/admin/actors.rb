@@ -1,5 +1,4 @@
 ActiveAdmin.register Actor do
-
   index do
     selectable_column
     id_column
@@ -18,16 +17,15 @@ ActiveAdmin.register Actor do
       f.input :full_name
       f.input :place_of_birth
       f.input :biography, as: :text
-      f.input :date_of_birth, :label => "Date of birth", as: :datepicker
+      f.input :date_of_birth, label: 'Date of birth', as: :datepicker
       f.input :image
     end
     f.actions
   end
 
   permit_params do
-    permitted = [:full_name, :biography, :date_of_birth, :image, :place_of_birth]
+    permitted = %i[full_name biography date_of_birth image place_of_birth]
     permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end
-  
 end

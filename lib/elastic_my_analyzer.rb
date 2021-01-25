@@ -19,8 +19,8 @@ module ElasticMyAnalyzer
         my_analyzer: {
           type: 'custom',
           tokenizer: 'standard',
-          filter: [
-            'lowercase', 'my_stopwords', 'mynGram'
+          filter: %w[
+            lowercase my_stopwords mynGram
           ]
         }
       }

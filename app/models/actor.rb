@@ -2,7 +2,7 @@ class Actor < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   include ElasticMyAnalyzer
-  
+
   paginates_per 4
 
   has_many :movies_actor
@@ -13,5 +13,4 @@ class Actor < ApplicationRecord
       indexes :full_name, analyzer: 'my_analyzer'
     end
   end
-
 end

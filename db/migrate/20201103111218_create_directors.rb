@@ -6,7 +6,7 @@ class CreateDirectors < ActiveRecord::Migration[6.0]
       t.string :date_of_birth
       t.string :image
       t.string :place_of_birth
-      
+
       t.timestamps
     end
   end

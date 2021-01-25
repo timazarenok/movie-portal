@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "Actors", type: :request do
-
+RSpec.describe 'Actors', type: :request do
 end

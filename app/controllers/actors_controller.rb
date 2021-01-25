@@ -3,7 +3,7 @@ class ActorsController < ApplicationController
   def show; end
 
   private
-  
+
   def set_actor
     @actor ||= Actor.find(params[:id])
   end

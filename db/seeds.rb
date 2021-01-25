@@ -11,7 +11,7 @@ Actor.__elasticsearch__.create_index!(force: true)
 Serial.__elasticsearch__.create_index!(force: true)
 Movie.__elasticsearch__.create_index!(force: true)
 
-service = Service::ServiceScrapper.new(ENV["TMDB_SESSION_URL"])
+service = Service::ServiceScrapper.new(ENV['TMDB_SESSION_URL'])
 service.set_guest_id
 
 person_scrapper = Person::PersonScrapper.new(service)
