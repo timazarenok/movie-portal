@@ -15,12 +15,11 @@ class User < ApplicationRecord
   enum role: %i[user editor admin]
 
   def self.find_or_create_from_auth_hash(auth)
-    where(provider: auth.provider, uid: auth.uid, email: auth.info.email).first_or_create! do |user|
-      user.provider = auth&.provider
-      user.uid = auth&.uid
-      user.email = auth&.info&.email
-      user.password = Devise.friendly_token[0, 20]
-    end
+    user = User.find_or_initialize_by(provider: auth.provider, uid: auth.uid, email: auth.info.email)
+    user.password = Devise.friendly_token[0, 20]
+    user.skip_confirmation!
+    user.save
+    user
   end
 
   def assign_default_role
