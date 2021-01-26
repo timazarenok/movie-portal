@@ -7,6 +7,8 @@ class Actor < ApplicationRecord
 
   has_many :movies_actor
   has_many :movies, through: :movies_actor
+  has_many :seasons_actor
+  has_many :seasons, through: :seasons_actor
 
   settings ES_SETTING do
     mappings dynamic: 'true' do

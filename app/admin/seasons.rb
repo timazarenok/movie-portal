@@ -1,7 +1,8 @@
-ActiveAdmin.register Actor do
+ActiveAdmin.register Season do
 
   controller do
     before_action :show
+
     def show
       redirect_to admin_root_path unless current_user.admin? || current_user.editor?
     end
@@ -10,29 +11,29 @@ ActiveAdmin.register Actor do
   index do
     selectable_column
     id_column
-    column :full_name
-    column :biography
-    column :date_of_birth
-    column :place_of_birth
+    column :name
+    column :description
+    column :number
     actions
   end
 
-  filter :full_name
-  filter :place_of_birth
+  filter :name
+  filter :duration
+  filter :release_date
 
   form do |f|
     f.inputs do
-      f.input :full_name
-      f.input :place_of_birth
-      f.input :biography, as: :text
-      f.input :date_of_birth, label: 'Date of birth', as: :datepicker
+      f.input :name
+      f.input :description, as: :text
+      f.input(:serial, as: :searchable_select)
+      f.input :number
       f.input :image
     end
     f.actions
   end
 
   permit_params do
-    permitted = %i[full_name biography date_of_birth image place_of_birth]
+    permitted = [:name, :description, :image, :number, :serial_id]
     permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end

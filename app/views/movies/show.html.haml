@@ -26,19 +26,22 @@
         %ul.attributes-list
           %li
             .attribute-name director
-            = link_to "#{@movie.director&.full_name}", director_path(@movie.director), class: 'attribute-link'
+            -if @movie.director&.full_name.nil?
+              .attribute-value no info
+            -else 
+              = link_to "#{@movie.director&.full_name}", director_path(@movie.director), class: 'attribute-link'
           %li
             .attribute-name category
-            .attribute-value= @movie.category&.name
+            .attribute-value= is_exist(@movie.category&.name)
           %li
             .attribute-name duration
-            .attribute-value= @movie.duration
+            .attribute-value= is_exist(@movie.duration)
           %li
             .attribute-name release date
-            .attribute-value= @movie.release_date
+            .attribute-value= is_exist(@movie.release_date)
       .col-8
         %h4.section-name Overview
-        .text-justify= @movie.description
+        .text-justify= is_exist(@movie.description)
         %h4.section-name Actors
         %ul.actor-list
           =render @actors

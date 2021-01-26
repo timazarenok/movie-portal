@@ -1,4 +1,11 @@
 ActiveAdmin.register Director do
+  controller do
+    before_action :show
+    def show
+      redirect_to admin_root_path unless current_user.admin? || current_user.editor?
+    end
+  end
+  
   index do
     selectable_column
     id_column

@@ -1,7 +1,8 @@
-ActiveAdmin.register Movie do
+ActiveAdmin.register Serial do
 
   controller do
     before_action :show
+
     def show
       redirect_to admin_root_path unless current_user.admin? || current_user.editor?
     end
@@ -12,13 +13,12 @@ ActiveAdmin.register Movie do
     id_column
     column :name
     column :description
-    column(:release_date) { |movie| movie.release_date&.strftime('%d-%m-%Y') }
-    column(:duration) { |movie| movie.duration&.strftime('%H:%M') }
-    column 'Category' do |movie|
-      Category.find(movie.category_id)
+    column(:release_date) { |serial| serial.release_date&.strftime('%d-%m-%Y') }
+    column 'Category' do |serial|
+      Category.find(serial.category_id)
     end
-    column 'Director' do |movie|
-      Director.find(movie.director_id)
+    column 'Director' do |serial|
+      Director.find(serial.director_id)
     end
     actions
   end
@@ -32,7 +32,6 @@ ActiveAdmin.register Movie do
       f.input :name
       f.input :description, as: :text
       f.input :release_date, label: 'Released date', as: :datepicker
-      f.input :duration, as: :time_picker
       f.input(:category, as: :searchable_select)
       f.input(:director, as: :searchable_select)
       f.input :clip
@@ -42,9 +41,9 @@ ActiveAdmin.register Movie do
   end
 
   permit_params do
-    permitted = [:name, :image, :description, :clip, :release_date, :duration, :category_id, :country_id,
-                 :director_id, { countries: [:country_id] }]
+    permitted = [:name, :description, :clip, :release_date, :category_id, :director_id, :image]
     permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end
+  
 end
