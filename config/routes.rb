@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :series do 
+    resources :comments
+  end
+
   resources :directors, :actors
   get 'search', to: 'search#search'
   get '/auth/:provider/callback', to: 'sessions#create'

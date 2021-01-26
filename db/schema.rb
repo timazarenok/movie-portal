@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_142814) do
   create_table "seasons", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
-    t.string "image", null: false
+    t.string "image"
     t.integer "number", limit: 2, null: false
     t.bigint "serial_id", null: false
     t.datetime "created_at", precision: 6, null: false

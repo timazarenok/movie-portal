@@ -6,17 +6,27 @@
     left: 10%;
     top: 100px;
     width: 75%;
+    height: 100%;
     color: #cfcdd1;
 }
 
 .link {
     color: #cfcdd1;
+    white-space: nowrap;
 }
 
 .link:hover {
     color: #cc073c;
     text-decoration: none;
     cursor: pointer;
+}
+
+a.link {
+    width: 200px;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .home-movie-list {

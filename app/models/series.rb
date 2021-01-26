@@ -1,4 +1,5 @@
 class Series < ApplicationRecord
   belongs_to :season
-  belongs_to :serial
+
+  has_many :comments, as: :commentable
 end

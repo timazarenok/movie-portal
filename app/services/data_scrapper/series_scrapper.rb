@@ -8,7 +8,8 @@ module DataScrapper
       url = "https://api.themoviedb.org/3/tv/#{serial_id}/season/#{season_number}/episode/#{episode_number}?api_key=#{ENV['TMDB_API_KEY']}&language=en-US&append_to_response=#{@guest_id}"
       data = JSON.parse(URI.open(url).read)
       credits = getCredits(episode_number, serial_id, season_number)
-      serial = Series.create(name: data["name"], description: data["overview"], image: data["still_path"], number: data["edisode_number"], season: Season.find(season_id))
+      seria = Series.create(name: data["name"], description: data["overview"], image: data["still_path"], number: data["episode_number"], season: Season.find(season_id))
+      seria.save
     end
 
     def getCredits(id, serial_id, season_number)

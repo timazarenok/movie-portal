@@ -1,5 +1,5 @@
 class SeasonsController < ApplicationController
-  before_action :set_season, only: %i[show like unlike]
+  before_action :set_season, only: %i[show]
   before_action :set_serial, only: [:show]
 
   def index

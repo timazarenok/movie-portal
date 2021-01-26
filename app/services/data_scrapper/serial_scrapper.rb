@@ -22,7 +22,6 @@ module DataScrapper
       else 
         genre = data['genres'][0]['name']
       end
-      p data
       serial = Serial.create!(name: data["original_name"], description: data["overview"], image: data["poster_path"], clip: '', release_date: data["first_air_date"], category: Category.find_by(name: genre), director: director)
       data["seasons"].each do |el|
         season_s.getSeason(el["season_number"], serial.id, id, p_s, series_sc)
