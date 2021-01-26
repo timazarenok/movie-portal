@@ -10,6 +10,17 @@
     color: #cfcdd1;
 }
 
+.login-link {
+    color: #cfcdd1;
+    white-space: nowrap;
+}
+
+.login-link:hover {
+    color: #cc073c;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .link {
     color: #cfcdd1;
     white-space: nowrap;
