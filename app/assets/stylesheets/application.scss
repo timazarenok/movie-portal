@@ -23,7 +23,7 @@ body {
 .form_container {
     position: sticky;
     left: 40%;
-    width: 300px;
+    width: 400px;
 }
 
 .form_header {
@@ -103,6 +103,26 @@ body {
     border: solid 1px #111822;
     width: 75px;
     height: 35px;
+}
+
+.Facebook {
+    background-color: #4267B2;
+    color: white;
+}
+
+.GitHub {
+    background-color: #211F1F;
+    color: white;
+}
+
+.Facebook:hover {
+    background-color: #4267B2;
+    color: white;
+}
+
+.GitHub:hover {
+    background-color: #211F1F;
+    color: white;
 }
 
 //= require jquery3

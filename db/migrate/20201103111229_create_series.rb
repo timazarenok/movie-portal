@@ -2,7 +2,7 @@ class CreateSeries < ActiveRecord::Migration[6.0]
   def change
     create_table :series do |t|
       t.string :name, null: false
-      t.string :description, limit: 500
+      t.string :description
       t.string :image
       t.time :duration, null: false
       t.integer :number, null: false

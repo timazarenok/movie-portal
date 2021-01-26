@@ -1,9 +1,6 @@
 module SearchHelper
-
   def validate_query(query)
-    if query.nil?
-      query = ""
-    end
+    query = '' if query.nil?
     query
   end
 
@@ -19,10 +16,10 @@ module SearchHelper
       director_path(result[:record_id])
     end
   end
-  
+
   def search_render?
-    current_page?(search_path) || current_page?(new_user_registration_path) || 
-    current_page?(user_session_path) || current_page?(new_user_password_path) || 
-    current_page?(edit_user_registration_path) 
+    current_page?(search_path) || current_page?(new_user_registration_path) ||
+      current_page?(user_session_path) || current_page?(new_user_password_path) ||
+      current_page?(edit_user_registration_path)
   end
 end

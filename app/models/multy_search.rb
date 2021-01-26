@@ -11,19 +11,13 @@ class MultySearch
     self
   end
 
-  def raw_data
-    @raw_data
-  end
-  
-  def results
-    @results
-  end
+  attr_reader :raw_data, :results
 
   private
 
   def run_elastic(search_word)
     Elasticsearch::Model
-    .search(search_query(search_word), MODELS_TO_SEARCH)
+      .search(search_query(search_word), MODELS_TO_SEARCH)
   end
 
   def save_data(data)
@@ -48,10 +42,10 @@ class MultySearch
           must: {
             multi_match: {
               query: query,
-              fields: %w(name full_name),
+              fields: %w[name full_name],
               operator: 'and'
             }
-          },
+          }
         }
       }
     }

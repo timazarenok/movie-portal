@@ -12,7 +12,12 @@
         .small= movie.release_date.year
   %h3.section-name TV Serials
   %ul.home-movie-list
-    -@tv_serials.each do |movie|
+    -@tv_serials.each do |serial|
       %li.movie-title
-        = link_to movie.name, movie_path(movie), class: 'link'
-        .small= "#{movie.release_date.year}"
+        -if serial.image
+          %img.movie-home-img{ src: "https://image.tmdb.org/t/p/w300#{serial.image}", alt: serial.name }
+        - else
+          %img.movie-no-img
+        %br
+        = link_to serial.name, serial_path(serial), class: 'link'
+        .small= "#{serial.release_date.year}"

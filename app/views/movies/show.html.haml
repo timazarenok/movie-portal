@@ -14,14 +14,14 @@
         .control-container
           #like-container
             - if !current_user.nil? && current_user.liked?("Movie", @movie.id)
-              = render("likes/unlike", movie: @movie)
+              = render("likes/unlike", likeable: @movie)
             - else
-              = render("likes/like", movie: @movie)
+              = render("likes/like", likeable: @movie)
           #wish-container
             -if !current_user.nil? && current_user.wished?("Movie", @movie.id)
-              = render("wishes/unwish", movie: @movie)
+              = render("wishes/unwish", wishable: @movie)
             - else
-              = render("wishes/wish", movie: @movie)
+              = render("wishes/wish", wishable: @movie)
         %br
         %ul.attributes-list
           %li
@@ -32,7 +32,7 @@
             .attribute-value= @movie.category&.name
           %li
             .attribute-name duration
-            .attribute-value= @movie.duration.to_s(:time)
+            .attribute-value= @movie.duration
           %li
             .attribute-name release date
             .attribute-value= @movie.release_date
@@ -42,6 +42,15 @@
         %h4.section-name Actors
         %ul.actor-list
           =render @actors
+    .row
+      .col-12
+        %h4.section-name= "Comments (#{@movie.comments.count})"
+        %br
+        %ul.be-comment-block#comments
+          =render @comments
+        =paginate @comments
+        -if !current_user.nil?
+          =render("comments/create", commentable: @movie)
     .row
       %h4.section-name You might like it
       %ul.home-movie-list

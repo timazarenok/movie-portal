@@ -10,12 +10,21 @@ Director.__elasticsearch__.create_index!(force: true)
 Actor.__elasticsearch__.create_index!(force: true)
 Serial.__elasticsearch__.create_index!(force: true)
 Movie.__elasticsearch__.create_index!(force: true)
+Serial.__elasticsearch__.create_index!(force: true)
 
-service = Service::ServiceScrapper.new(ENV["TMDB_SESSION_URL"])
+service = DataScrapper::ServiceScrapper.new(ENV['TMDB_SESSION_URL'])
 service.set_guest_id
 
-person_scrapper = Person::PersonScrapper.new(service)
-category_scrapper = Categories::CategoryScrapper.new(service)
-category_scrapper.getCategories
-m_s = Movies::MovieScrapper.new(service)
+person_scrapper = DataScrapper::PersonScrapper.new(service)
+category_scrapper = DataScrapper::CategoryScrapper.new(service)
+category_scrapper.getSerialsCategories
+category_scrapper.getMoviesCategories
+m_s = DataScrapper::MovieScrapper.new(service)
 m_s.getList(7, person_scrapper)
+serial_scrapper = DataScrapper::SerialScrapper.new(service)
+season_s = DataScrapper::SeasonScrapper.new(service)
+series_sc = DataScrapper::SeriesScrapper.new(service)
+serial_scrapper.getSerialsList(1, person_scrapper, season_s, series_sc)
+
+
+

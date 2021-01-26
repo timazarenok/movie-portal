@@ -8,21 +8,23 @@ class WishesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to :back }
       format.js { render layout: false }
-    end 
+    end
   end
-  
+
   def destroy
     current_user.remove_wish_from(@wishable)
 
     respond_to do |format|
       format.html { redirect_to :back }
       format.js { render layout: false }
-    end 
+    end
   end
 
-  private 
+  private
 
   def set_wishable
-    @wishable = Movie.find(params[:movie_id])
+    @wishable = Movie.find(params[:movie_id]) unless params[:movie_id].nil?
+    @wishable = Serial.find(params[:serial_id]) unless params[:serial_id].nil?
+    @wishable
   end
 end

@@ -12,6 +12,10 @@
     border: 1px solid;
 }
 
+.result-type {
+    display: inline-block;
+}
+
 .bi.bi-search {
     color: #cc073c;
     display: inline-block;
@@ -33,6 +37,8 @@
 a.dropdown-item {
     color: #111822;
     border-radius: 10px;
+    display: inline-block;
+    width: 200px;
 }
 
 a.dropdown-item:active {

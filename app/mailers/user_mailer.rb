@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(to: @user.email, subject: 'From Movie-portal with love')
   end
-  
+
   def test_send(email)
     @email = email
     mail(to: @email, subject: 'Test Send')

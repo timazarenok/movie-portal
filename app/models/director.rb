@@ -10,5 +10,4 @@ class Director < ApplicationRecord
       indexes :full_name, analyzer: 'my_analyzer'
     end
   end
-
 end

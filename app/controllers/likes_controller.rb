@@ -8,21 +8,23 @@ class LikesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to :back }
       format.js { render layout: false }
-    end 
+    end
   end
 
   def destroy
     current_user.remove_like_from(@likeable)
 
     respond_to do |format|
-      format.html {redirect_to :back}
-      format.js { render layout: false}
-    end 
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
   end
 
-  private 
+  private
 
   def set_likeable
-    @likeable = Movie.find(params[:movie_id])
+    @likeable = Movie.find(params[:movie_id]) unless params[:movie_id].nil?
+    @likeable = Serial.find(params[:serial_id]) unless params[:serial_id].nil?
+    @likeable
   end
 end
