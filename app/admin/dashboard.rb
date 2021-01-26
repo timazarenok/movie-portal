@@ -1,6 +1,13 @@
 ActiveAdmin.register_page 'Dashboard' do
   menu priority: 1, label: proc { I18n.t('active_admin.dashboard') }
 
+  controller do
+    before_action :show
+    def show
+      redirect_to user_root_path unless current_user.admin? || current_user.editor?
+    end
+  end
+
   content title: proc { I18n.t('active_admin.dashboard') } do
     div class: 'blank_slate_container', id: 'dashboard_default_message' do
       span class: 'blank_slate' do

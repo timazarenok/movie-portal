@@ -13,10 +13,10 @@
       .attribute-value= @user.email
     .attribute-block
       .attribute-title Name
-      .attribute-value= @user.name
+      .attribute-value= is_exist(@user.name)
     .attribute-block
       .attribute-title Surname
-      .attribute-value= @user.surname
+      .attribute-value= is_exist(@user.surname)
   .user-statistics
     %h3.profile-title Statistics
     .diagrams
@@ -28,26 +28,31 @@
         = pie_chart @user.wished_movies.group(:category).count.map { |item| [item[0].name, item[1]] }, donut: true
         .count=@user.wished_movies.count
         .panel-label Wished
-    .h3.section-name Liked 
-    %ul.liked-movie-list
-      -@user.liked_movies.each do |movie|
-        %li.liked-movie-item
-          -if movie.image
-            %img.liked-movie-img{ src: "https://image.tmdb.org/t/p/w300#{movie.image}", alt: movie.name }
-          - else
-            %img.movie-no-img    
-          %br
-          = link_to movie.name, movie_path(movie), class: 'link'
-          .small= movie.release_date.year
+    .h3.section-name Liked
+    -if @user.liked_movies.count > 0
+      %ul.liked-movie-list
+        -@user.liked_movies.each do |movie|
+          %li.liked-movie-item
+            -if movie.image
+              %img.liked-movie-img{ src: "https://image.tmdb.org/t/p/w300#{movie.image}", alt: movie.name }
+            - else
+              %img.movie-no-img    
+            %br
+            = link_to movie.name, movie_path(movie), class: 'link'
+            .small= movie.release_date.year
+    -else 
+      .text-justify No Information now
     .h3.section-name Wished 
-    %ul.liked-movie-list
-      -@user.wished_movies.each do |movie|
-        %li.liked-movie-item
-          -if movie.image
-            %img.liked-movie-img{ src: "https://image.tmdb.org/t/p/w300#{movie.image}", alt: movie.name }
-          - else
-            %img.movie-no-img    
-          %br
-          = link_to movie.name, movie_path(movie), class: 'link'
-          .small= movie.release_date.year
-        
+    -if @user.wished_movies.count > 0
+      %ul.liked-movie-list
+        -@user.wished_movies.each do |movie|
+          %li.liked-movie-item
+            -if movie.image
+              %img.liked-movie-img{ src: "https://image.tmdb.org/t/p/w300#{movie.image}", alt: movie.name }
+            - else
+              %img.movie-no-img    
+            %br
+            = link_to movie.name, movie_path(movie), class: 'link'
+            .small= movie.release_date.year
+    -else
+      .text-justify No Information now

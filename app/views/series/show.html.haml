@@ -6,14 +6,14 @@
         -if @serie.image 
           %img.movie-img{ src: "https://image.tmdb.org/t/p/w300#{@serie.image}", alt: @serie.name }
         -else
-          %img.movie-no-img
+          =image_tag 'download.png', class: 'series-img'
       .col-8
         %h4.section-name Overview
         .text-justify= @serie.description
     .row
       .col-12
         %h4.section-name All series
-        %ul.actor-list
+        %ul.series-list
           =render @series
     .row
       .col-12
