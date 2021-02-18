@@ -30,7 +30,6 @@ class Movie < ApplicationRecord
       name: name,
       image: image,
       description: description,
-      clip: clip,
       release_date: release_date,
       duration: duration,
       category_id: category_id,

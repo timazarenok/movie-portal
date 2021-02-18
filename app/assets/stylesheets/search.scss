@@ -17,7 +17,7 @@
 }
 
 .bi.bi-search {
-    color: #cc073c;
+    color: var(--main-color);
     display: inline-block;
 }
 
@@ -35,22 +35,22 @@
 }
 
 a.dropdown-item {
-    color: #111822;
+    color: var(--main-bg-color);
     border-radius: 10px;
     display: inline-block;
     width: 200px;
 }
 
 a.dropdown-item:active {
-    color: #cc073c;
+    color: var(--main-color);
     background-color: white;
     border-radius: 10px;
 }
 
 @media(min-width: 1000px) {
     .header-search-item {
-        color: #cfcdd1;
-        top: 7%;
+        color: var(--main-second-color);
+        top: 10%;
         width: 350px;
         display: inline;
         position: absolute;
@@ -63,7 +63,7 @@ a.dropdown-item:active {
         background-color: white;
         padding: 0px;
         list-style: none;
-        color: #cc073c;
+        color: var(--main-color);
         border-radius: 5px;
     }
 }

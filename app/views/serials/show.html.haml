@@ -8,6 +8,8 @@
         -else
           =image_tag 'download.png', class: 'movie-no-img'
       .col-8
+        %h4.video-section Trailer
+        %iframe.video{ src: "https://www.youtube.com/embed/#{@serial.video_key}" }
     .row
       .col-4
         %br

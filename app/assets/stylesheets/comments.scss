@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .be-comment-block {
     margin-bottom: 50px !important;
-    border: 1px solid #cc073c;
+    border: 1px solid var(--main-color);
     border-radius: 2px;
     padding: 50px 20px;
-    border: 1px solid #cc073c;
+    border: 1px solid var(--main-color);
 }
 
 .be-comment {
@@ -53,16 +53,16 @@
 
 .be-comment-name {
     font-size: 16px;
-    color: #cc073c;
+    color: var(--main-color);
     font-family: 'Conv_helveticaneuecyr-bold';
 }
 
 .be-comment-content a {
-    color: #cc073c;
+    color: var(--main-color);
 }
 
 .be-comment-content a:hover {
-    color: #cc073c;
+    color: var(--main-color);
     text-decoration: underline;
 }
 
@@ -74,14 +74,14 @@
 
 .be-comment-time {
     text-align: right;
-    color: #cc073c;
+    color: var(--main-color);
     font-size: 12px;
 }
 
 .be-comment-text {
     font-size: 15px;
     line-height: 18px;
-    color: #111822;
+    color: var(--main-bg-color);
     display: block;
     background: #f6f6f7;
     border: 1px solid #edeff2;
@@ -102,5 +102,5 @@
 .form-group textarea.form-input {
     height: 150px;
     width: 100%;
-    color: #111822;
+    color: var(--main-bg-color);
 }

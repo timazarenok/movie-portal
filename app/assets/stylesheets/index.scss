@@ -7,27 +7,28 @@
     top: 100px;
     width: 75%;
     height: 100%;
-    color: #cfcdd1;
+    color: var(--main-color);
+    font-weight: bold;
 }
 
 .login-link {
-    color: #cfcdd1;
+    color: var(--main-second-color);
     white-space: nowrap;
 }
 
 .login-link:hover {
-    color: #cc073c;
+    color: var(--main-color);
     text-decoration: none;
     cursor: pointer;
 }
 
 .link {
-    color: #cfcdd1;
+    color: var(--main-second-color);
     white-space: nowrap;
 }
 
 .link:hover {
-    color: #cc073c;
+    color: var(--main-color);
     text-decoration: none;
     cursor: pointer;
 }
@@ -45,8 +46,8 @@ a.link {
     white-space: nowrap;
     overflow-x: scroll;
     overflow-y: hidden;
-    height: 400px;
-    padding: 30px 0px;
+    height: 425px;
+    padding: 60px 0px;
 }
 
 .home-movie-list li {
@@ -68,13 +69,13 @@ a.link {
 ::-webkit-scrollbar {
     width: auto;
     height: 3px;
-    background-color: #cfcdd1;
+    background-color: var(--main-second-color);
 }
 
 
 /* ползунок скроллбара */
 
 ::-webkit-scrollbar-thumb {
-    box-shadow: inset 2px 2px 10px #cc073c;
-    background-color: #cc073c;
+    box-shadow: inset 2px 2px 10px var(--main-color);
+    background-color: var(--main-color);
 }

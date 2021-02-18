@@ -14,16 +14,16 @@
 }
 
 .attribute-name {
-    color: #cc073c;
+    color: var(--main-color);
 }
 
 .attribute-link {
-    color: #cfcdd1;
+    color: var(--main-second-color);
     text-decoration: underline;
 }
 
 .attribute-value {
-    color: #cfcdd1;
+    color: var(--main-second-color);
     padding-left: 20px;
     white-space: nowrap;
 }
@@ -32,15 +32,19 @@
     position: absolute;
     left: 20%;
     top: 100px;
-    color: #cfcdd1;
+    color: var(--main-second-color);
 }
 
 .attribute-link:hover {
-    color: #cc073c;
+    color: var(--main-color);
 }
 
 .section-name {
-    color: #cc073c;
+    position: relative;
+    top: 30px;
+    color: var(--main-color);
+    font-weight: bold;
+    height: 30px;
 }
 
 .movie-list {

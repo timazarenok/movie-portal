@@ -8,6 +8,8 @@
         -else
           =image_tag 'download.png', class: 'movie-no-img'
       .col-8
+        %h4.video-section Trailer
+        %iframe.video{ src: "https://www.youtube.com/embed/#{@season.video_key}" }
         %h4.section-name Overview
         .text-justify= is_exist(@season.description)
     .row

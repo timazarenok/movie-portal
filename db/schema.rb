@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_142814) do
+ActiveRecord::Schema.define(version: 2021_02_17_161406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,13 +108,13 @@ ActiveRecord::Schema.define(version: 2021_01_25_142814) do
     t.string "name", null: false
     t.string "image", null: false
     t.string "description"
-    t.string "clip", null: false
     t.date "release_date", null: false
     t.time "duration"
     t.bigint "category_id", null: false
     t.bigint "director_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "video_key"
     t.index ["category_id"], name: "index_movies_on_category_id"
     t.index ["director_id"], name: "index_movies_on_director_id"
   end
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_142814) do
     t.bigint "serial_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "video_key"
     t.index ["serial_id"], name: "index_seasons_on_serial_id"
   end
 
@@ -169,13 +170,13 @@ ActiveRecord::Schema.define(version: 2021_01_25_142814) do
   create_table "serials", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
-    t.string "clip", null: false
     t.date "release_date", null: false
     t.bigint "category_id", null: false
     t.bigint "director_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
+    t.string "video_key"
     t.index ["category_id"], name: "index_serials_on_category_id"
     t.index ["director_id"], name: "index_serials_on_director_id"
   end

@@ -7,7 +7,7 @@ class IndexController < ApplicationController
   private
 
   def get_films
-    @movies = Movie.take(25)
+    @movies = Movie.where(release_date: DateTime.new(2020)..Time.now).order(release_date: :desc).take(25)
   end
 
   def get_tv_serials
