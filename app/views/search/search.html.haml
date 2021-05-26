@@ -1,4 +1,4 @@
-.main 
+.search-main
   = form_for search_path, method: :get do |f|
     .search-item
       = text_field_tag :q, params[:q], onkeyup: "$(this).parent('form').submit();"
@@ -11,7 +11,7 @@
         -else
           %img.search-no-img
         %br
-        %h4= result[:hint][:name]
+        %h4.search-name= result[:hint][:name]
         %h6= result[:hint][:type]
         = link_to 'More', search_result_link(result), class: 'link'
   =paginate @results

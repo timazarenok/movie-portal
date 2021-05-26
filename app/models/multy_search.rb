@@ -26,6 +26,7 @@ class MultySearch
   end
 
   def create_answers(data)
+    p data.records
     data.records.map do |result|
       {
         hint: build_hint(result),
